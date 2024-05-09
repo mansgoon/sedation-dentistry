@@ -2,7 +2,7 @@
 import * as React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import TimePicker from 'react-time-picker';
+import { useState } from 'react';
 import 'react-time-picker/dist/TimePicker.css';
 import Footer from "./footer.js";
 
@@ -28,7 +28,58 @@ function ContactForm() {
       setSelectedTime(event.target.value);
     };
 
+    const [formData, setFormData] = useState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      date: null,
+      time: '10:00',
+      messageBox: '',
+    });
+  
+    const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+  
+    const handleDateChange = (date) => {
+      setFormData({ ...formData, date });
+    };
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+  
+      try {
+        const response = await fetch('/contact/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.ok) {
+          alert('Form submitted successfully');
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            phoneNumber: '',
+            date: null,
+            time: '10:00',
+            messageBox: '',
+          });
+        } else {
+          alert('Error submitting form');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('Error submitting form');
+      }
+    };
+
     return (
+      <form onSubmit={handleSubmit}>
       <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 mt-10 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5">
         <div className="flex gap-5 max-sm:flex-col max-md:gap-0">
           <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
@@ -139,6 +190,7 @@ function ContactForm() {
           Submit
         </button>
       </div>
+      </form>
     );
   }
 
