@@ -218,7 +218,7 @@ function ContactForm() {
                       <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                         <img
                           loading="lazy"
-                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/1261109349483131ba75c253eccd5abd8fac34ececb7bbb20ecb9ac8cd59d5cb?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/bff758efd1a851b32d5fdf1a48ccde287c45a7169123dfb36610a0823450dd6a?apiKey=ea3aca9057654e45a61207978509cdea&"
                           className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
                         />
                       </div>
@@ -263,7 +263,7 @@ function ContactForm() {
                     <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                         <img
                           loading="lazy"
-                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/1261109349483131ba75c253eccd5abd8fac34ececb7bbb20ecb9ac8cd59d5cb?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/21cb9db8f0830355ac81463c8bf9053d6482636f6a15179db8df8671d7d58c34?apiKey=ea3aca9057654e45a61207978509cdea&"
                           className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
                         />
                       </div>
