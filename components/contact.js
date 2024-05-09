@@ -21,10 +21,10 @@ function ContactForm() {
     const [selectedDate, setSelectedDate] = React.useState(null);
     return (
       <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 mt-10 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5">
-        <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-          <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+        <div className="flex gap-5 max-sm:flex-col max-md:gap-0">
+          <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
             <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 mt-5 h-auto">
-              <label htmlFor="firstName" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800">
+              <label htmlFor="firstName" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium">
                 First name
               </label>
               <input
@@ -37,24 +37,24 @@ function ContactForm() {
               />
             </div>
           </div>
-          <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-            <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 mt-5 h-auto">
-              <label htmlFor="lastName" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800">
-                Last name
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                placeholder="Last name"
-                name="lastName"
-                className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
-                required
-              />
-            </div>
+          <div className="flex flex-col ml-5 w-1/2 max-sm:ml-0 max-sm:w-full">
+          <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 mt-5 h-auto">
+            <label htmlFor="lastName" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium">
+              Last name
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              placeholder="Last name"
+              name="lastName"
+              className="box-border flex relative flex-col shrink-0 w-full p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
+              required
+            />
           </div>
         </div>
+        </div>
         <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 h-auto">
-          <label htmlFor="email" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800">
+          <label htmlFor="email" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium">
             Email
           </label>
           <input
@@ -80,7 +80,7 @@ function ContactForm() {
           />
         </div>
         <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 h-auto">
-            <label htmlFor="date" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800">
+            <label htmlFor="date" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium">
             Select date
             </label>
             <DatePicker
