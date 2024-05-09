@@ -112,6 +112,8 @@ export function MyComponent() {
     };
   }, []);
 
+
+  // turns "white" into blue color
   const getColoredText = (text) => {
     const parts = text.split(" ");
     return parts.map((part, index) => {
@@ -201,15 +203,17 @@ export function MyComponent() {
                   Awake or Asleep Dentistry has been providing sedation dentistry in Mississauga for over 15 years. We offer several different sedation options for your comfort, ranging from light conscious sedation, deep conscious sedation, to fully asleep. Although our office specializes in sedation, we also provide treatments without sedation as well. Dentistry services are available for the entire family, including adults, teens, and children 2+. Call, or schedule a consultation to discuss your options, or click on the links below for more information.
                 </span>
               </p>
-              <div className="flex justify-between items-center mt-20 ml-5 mr-auto max-md:justify-center">
+              <div className="flex justify-between items-center mt-20 ml-5 max-md:justify-center">
+              <div className="flex items-center">
                 <Link href="/contact" passHref>
                 <button className="box-border relative shrink-0 px-6 py-4 mr-4 text-xs text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-[white] max-md:mx-auto max-md:mt-5 max-sm:mx-auto max-sm:mt-5 hover:bg-[#057BA2] hover:scale-105 transition-transform duration-100">
                   BOOK AN APPOINTMENT
                 </button>
                 </Link>
-                <a href="/contact" className="py-1 text-sm border-b-2 border-solid border-[#5BA3BB] text-[#5BA3BB] max-md:hidden max-sm:hidden hover:-[#057BA2] hover:scale-105 transition-transform duration-100">
+                <a href="/contact" className="py-1 ml-4 text-sm border-b-2 border-solid border-[#5BA3BB] text-[#5BA3BB] max-md:hidden max-sm:hidden hover:text-[#057BA2] hover:scale-105 transition-transform duration-100">
                   LEARN MORE
                 </a>
+              </div>
               </div>
             </div>
           </div>
