@@ -152,6 +152,7 @@ function ContactForm() {
                 onChange={(date) => setSelectedDate(date)}
                 className="box-border flex relative flex-col shrink-0 w-full mt-5 rounded border border-solid border-zinc-400 text-[#282828] focus:outline-none focus:ring-1 caret-zinc-800 p-2.5"
                 placeholderText="Select a date"
+                required
               />
             </div>
           </div>
@@ -167,6 +168,7 @@ function ContactForm() {
                 value={selectedTime}
                 onChange={handleTimeChange}
                 className="box-border flex relative flex-col shrink-0 w-full p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
+                required
               />
             </div>
           </div>
@@ -195,42 +197,99 @@ function ContactForm() {
   }
 
 
-export function ContactPage() {
-  return (
-    <div className="flex flex-col pt-7 bg-[#edf8fc]">
-      <div
-        className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]"
-      >
-        <ContactSection />
-      </div>
-      <div className="box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto">
-        <div className="box-border flex relative flex-col shrink-0 mt-5">
-          <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-              <div className="box-border flex relative flex-col shrink-0 pb-8 mb-auto h-auto">
-                <div className="box-border flex relative flex-col shrink-0 pb-8 mt-5 ml-52 h-auto max-md:mx-5 max-sm:mx-5">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a"
-                    alt="Dentist office interior"
-                    className="box-border object-cover overflow-hidden shrink-0 mt-5 w-full rounded-lg border-2 border-solid aspect-[1.42] border-[#5BA3BB] min-h-[20px] min-w-[20px]"
-                  />
-                <div className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg h-[125px] opacity-[1] border-2 bg-white">
-                asd
-                </div>
-                <div className="box-border flex relative flex-col shrink-0 mt-8 rounded-lg border-solid shadow-lg h-[125px] opacity-[1] border-2 bg-white" />
-                <div className="box-border flex relative flex-col shrink-0 mt-8 rounded-lg border-solid shadow-lg h-[125px] opacity-[1] border-2 bg-white" />
+  export function ContactPage() {
+    return (
+      <div className="flex flex-col pt-7 bg-[#edf8fc]">
+        <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]">
+          <ContactSection />
+        </div>
+        <div className="box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto">
+          <div className="box-border flex relative flex-col shrink-0 mt-5">
+            <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+              <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+                <div className="box-border flex relative flex-col shrink-0 pb-8 mb-auto h-auto">
+                  <div className="box-border flex relative flex-col shrink-0 pb-8 ml-52 h-auto max-md:mx-5 max-sm:mx-5">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a"
+                      alt="Dentist office interior"
+                      className="box-border object-cover overflow-hidden shrink-0 mt-5 w-full rounded-lg border-2 border-solid aspect-[1.42] border-[#5BA3BB] min-h-[20px] min-w-[20px]"
+                    />
+                    <div className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg min-h-[125px] opacity-[1] border-2 bg-white flex items-center">
+                      <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
+                        <img
+                          loading="lazy"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/1261109349483131ba75c253eccd5abd8fac34ececb7bbb20ecb9ac8cd59d5cb?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
+                        />
+                      </div>
+                      <div className="flex flex-col ml-5 w-[83%] max-md:w-auto">
+                        <div className="flex flex-col grow">
+                          <div className="text-base tracking-wide leading-6 text-gray-700 font-bold">
+                            Office Address
+                          </div>
+                          <div className="text-base tracking-wide leading-6 text-gray-700 font-medium">
+                            325 Central Parkway West,
+                            <br />
+                            Mississauga, ON L5B3X9
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg min-h-[125px] opacity-[1] border-2 bg-white flex items-center">
+                      <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
+                        <img
+                          loading="lazy"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/1261109349483131ba75c253eccd5abd8fac34ececb7bbb20ecb9ac8cd59d5cb?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
+                        />
+                      </div>
+                      <div className="flex flex-col ml-5 w-[83%] max-md:w-auto">
+                        <div className="flex flex-col grow">
+                          <div className="text-base tracking-wide leading-6 text-gray-700 font-bold">
+                            Office Hours
+                          </div>
+                          <div className="text-base tracking-wide leading-6 text-gray-700 font-medium">
+                            Monday - Tuesday (11am - 7pm)
+                          </div>
+                          <div className="text-base tracking-wide leading-6 text-gray-700 font-medium">
+                            Wed - Thurs (8am - 4pm)
+                            <br />
+                            Friday (8am - 3pm)
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg min-h-[125px] opacity-[1] border-2 bg-white flex items-center">
+                    <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
+                        <img
+                          loading="lazy"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/1261109349483131ba75c253eccd5abd8fac34ececb7bbb20ecb9ac8cd59d5cb?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
+                        />
+                      </div>
+                      <div className="flex flex-col ml-5 w-[83%] max-md:w-auto">
+                        <div className="flex flex-col grow">
+                          <div className="text-base tracking-wide leading-6 text-gray-700 font-bold">
+                            Phone Number
+                          </div>
+                          <div className="text-base tracking-wide leading-6 text-gray-700 font-medium">
+                            905-277-2641
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-              <div className="box-border flex relative flex-col shrink-0 pb-8 mb-auto h-auto">
-                <ContactForm />
+              <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+                <div className="box-border flex relative flex-col shrink-0 pb-8 mb-auto h-auto">
+                  <ContactForm />
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-  );
-}
+    );
+  }
