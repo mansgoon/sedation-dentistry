@@ -13,9 +13,9 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       screens: {
-        'sm': '640px', // assuming you want to keep the small breakpoint
-        'md': '987px', // updated from the default or previous value
-        'lg': '1024px', // assuming other breakpoints remain the same
+        'sm': '640px',
+        'md': '987px',
+        'lg': '1024px', 
         'xl': '1280px',
         '2xl': '1536px',
       },
