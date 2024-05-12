@@ -33,7 +33,9 @@ export const Footer = () => {
         <FooterSection key={index} {...section} />
       ))}
       <div className="flex flex-col mt-1 max-sm:mx-auto max-sm:text-center">
+        <a href="/contact">
         <div className="text-xl tracking-wider text-white">Contact us</div>
+        </a>
         <div className="mt-9 text-lg tracking-widest leading-7 text-zinc-400">
           325 Central Parkway West
           <br />

@@ -218,13 +218,13 @@ function ContactForm() {
                       <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                         <img
                           loading="lazy"
-                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/bff758efd1a851b32d5fdf1a48ccde287c45a7169123dfb36610a0823450dd6a?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/97161b38cead17a8fca63d577353b946ffb3229023176a79941ddd820fec9de0?apiKey=ea3aca9057654e45a61207978509cdea&"
                           className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
                         />
                       </div>
                       <div className="flex flex-col ml-5 w-[83%] max-md:w-auto">
                         <div className="flex flex-col grow">
-                          <div className="text-base tracking-wide leading-6 text-gray-700 font-bold">
+                          <div className="text-base tracking-wide leading-6 text-zinc-800 font-bold">
                             Office Address
                           </div>
                           <div className="text-base tracking-wide leading-6 text-gray-700 font-medium">
@@ -239,13 +239,13 @@ function ContactForm() {
                       <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                         <img
                           loading="lazy"
-                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/1261109349483131ba75c253eccd5abd8fac34ececb7bbb20ecb9ac8cd59d5cb?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/43041c4f8f1663181981448c51d224d6eefc5808bdf3b2c8bc5ef8360292f7b4?apiKey=ea3aca9057654e45a61207978509cdea&"
                           className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
                         />
                       </div>
                       <div className="flex flex-col ml-5 w-[83%] max-md:w-auto">
                         <div className="flex flex-col grow">
-                          <div className="text-base tracking-wide leading-6 text-gray-700 font-bold">
+                          <div className="text-base tracking-wide leading-6 text-zinc-800 font-bold">
                             Office Hours
                           </div>
                           <div className="text-base tracking-wide leading-6 text-gray-700 font-medium">
@@ -263,13 +263,13 @@ function ContactForm() {
                     <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                         <img
                           loading="lazy"
-                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/21cb9db8f0830355ac81463c8bf9053d6482636f6a15179db8df8671d7d58c34?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/58f94d1b33acc78a68a70e2197f3f0ff1ffd096e089b0bef69f93e7d41b23225?apiKey=ea3aca9057654e45a61207978509cdea&"
                           className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
                         />
                       </div>
                       <div className="flex flex-col ml-5 w-[83%] max-md:w-auto">
                         <div className="flex flex-col grow">
-                          <div className="text-base tracking-wide leading-6 text-gray-700 font-bold">
+                          <div className="text-base tracking-wide leading-6 text-zinc-800 font-bold">
                             Phone Number
                           </div>
                           <div className="text-base tracking-wide leading-6 text-gray-700 font-medium">

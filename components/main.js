@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Footer from "./footer.js";
 
 const ServiceItem = ({ imageSrc, title, description }) => (
-  <div className="flex flex-col grow pb-5 max-md:mt-10 max-sm:text-center">
+  <div className="flex flex-col grow pb-5 max-md:mt-10 max-sm:text-center max-md:items-center">
     <img src={imageSrc} alt={title} className="w-10 aspect-square max-sm:mx-auto" />
     <div className="mt-6 text-xl tracking-wider text-[#282828] font-medium">{title}</div>
     <div className="mt-9 text-lg tracking-widest leading-9 text-zinc-400">{description}</div>
@@ -13,9 +13,9 @@ const ServiceItem = ({ imageSrc, title, description }) => (
 
 const services = [
   {
-    imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/55e4cad9ab13d9c032ebbdf0ad318bcacb32034211c895e15bd3a6ebcff6c90b?apiKey=ea3aca9057654e45a61207978509cdea&",
-    title: "Preventive Care",
-    description: "Regular check-ups and fluoride treatments to prevent tooth decay and gum disease.",
+    imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/80f51565ec0b1a47dd402cc0a46207082412de8dfff25f1dc88ad49ac4d56b7c?apiKey=ea3aca9057654e45a61207978509cdea&",
+    title: "Sedation Dentistry",
+    description: "Our experienced team offers sedation dentistry for anxious or special needs kids 2 and up.",
   },
   {
     imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/cea2579eb30e870dd26f1fcc02bcb11d9aa4a1c320d7b8e3ade83a6ec1e8d1a4?apiKey=ea3aca9057654e45a61207978509cdea&",
@@ -23,12 +23,12 @@ const services = [
     description: "Fillings, crowns, bridges, and dentures to restore damaged or missing teeth.",
   },
   {
-    imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/df1ebca7a1c00ac379d31fef9a5fed66ba0fc8d294ffdfc415241bd5a2eaa667?apiKey=ea3aca9057654e45a61207978509cdea&",
-    title: "Sedation Dentistry",
-    description: "Our experienced team offers sedation dentistry for anxious or special needs kids 2 and up.",
+    imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/55e4cad9ab13d9c032ebbdf0ad318bcacb32034211c895e15bd3a6ebcff6c90b?apiKey=ea3aca9057654e45a61207978509cdea&",
+    title: "Preventive Care",
+    description: "Regular check-ups and fluoride treatments to prevent tooth decay and gum disease.",
   },
   {
-    imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/80f51565ec0b1a47dd402cc0a46207082412de8dfff25f1dc88ad49ac4d56b7c?apiKey=ea3aca9057654e45a61207978509cdea&",
+    imageSrc: "https://cdn.builder.io/api/v1/image/assets/TEMP/df1ebca7a1c00ac379d31fef9a5fed66ba0fc8d294ffdfc415241bd5a2eaa667?apiKey=ea3aca9057654e45a61207978509cdea&",
     title: "Oral Surgery",
     description: "Extractions, wisdom teeth removal, and other surgical procedures.",
   },
@@ -167,7 +167,7 @@ export function MyComponent() {
         <section className="py-2.5 mt-5 max-md:flex max-md:flex-col max-md:max-w-full max-sm:flex max-sm:flex-col">
           <div className="flex gap-5 max-md:flex-col max-md:gap-0">
             <div className="flex flex-col w-[41%] max-md:ml-0 max-md:w-full">
-              <h1 className="min-h-[340px] self-stretch my-auto text-8xl font-bold tracking-tighter text-[#282828] max-md:mt-10 max-md:max-w-full max-md:text-6xl max-sm:pr-5 max-sm:-mt-0.5 max-sm:text-8xl max-sm:tracking-tighter max-sm:text-center">
+              <h1 className="min-h-[340px] self-stretch my-auto text-8xl font-bold tracking-tighter text-[#282828] max-md:mt-10 max-md:max-w-full max-md:text-center max-md:text-6xl max-sm:pr-5 max-sm:-mt-0.5 max-sm:text-8xl max-sm:tracking-tighter max-sm:text-center">
                 {renderText()}
               </h1>
             </div>
@@ -189,13 +189,13 @@ export function MyComponent() {
             <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full animate-fade-in scroll-trigger">
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/8d8c34708377bc7697804bb7cedddac9959a36f4d5c08cdbb40061cd193a4ed7?apiKey=ea3aca9057654e45a61207978509cdea&width=2000"
                 alt="Dentist examining patient's teeth"
                 className="box-border object-cover overflow-hidden shrink-0 my-auto w-full aspect-[1.42] min-h-[20px] min-w-[20px] max-md:flex max-md:mx-auto max-md:w-full max-md:max-w-[750px] max-sm:hidden max-sm:w-full"
               />
             </div>
             <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full animate-slide-up scroll-trigger">
-              <h2 className="self-start my-auto mr-10 ml-5 text-6xl font-bold tracking-tight text-[#282828] max-md:mt-0 max-md:mr-2.5 max-md:max-w-full max-md:text-center max-sm:my-auto max-sm:ml-auto max-sm:text-center">
+              <h2 className="self-start my-auto mr-10 ml-5 text-6xl font-bold tracking-tight text-[#282828] max-md:mr-2.5 max-md:mt-10 max-md:max-w-full max-md:text-center max-sm:my-auto max-sm:ml-auto max-sm:text-center ">
                 Expert dental care for the whole family.
               </h2>
               <p className="self-end mr-10 mb-auto text-lg ml-5 leading-9 text-zinc-400 max-md:pt-4 max-md:mt-0 max-md:mr-2.5 max-md:max-w-full max-md:text-center max-sm:my-auto max-sm:ml-auto max-sm:text-center">
@@ -234,7 +234,7 @@ export function MyComponent() {
                     {services.slice(0, 3).map((service, index) => (
                       <div
                         key={index}
-                        className={`flex flex-col w-[33%] max-md:ml-0 max-md:w-full ${
+                        className={`flex flex-col w-[33%] max-md:ml-0 max-md:w-full max-md:text-center ${
                           index === 1 ? "ml-5" : ""
                         } animate-fade-in scroll-trigger`}
                       >
@@ -280,7 +280,7 @@ export function MyComponent() {
               Professionals you can trust. Period.
             </h2>
             <p className="mt-5 mr-10 mb-auto ml-5 text-lg leading-9 text-zinc-400 max-md:max-w-full max-md:text-center">
-              Dr. Golovanov is a prominent dental specialist, who knows how to treat every problem. 15+ years of experience translates into bespoke treatment of every patient .
+              Dr. Golovanov is a prominent dental specialist, who knows how to treat every problem. Over 25 years of experience translates into bespoke treatment of every patient .
             </p>
           </div>
         </div>
