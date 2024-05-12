@@ -7,7 +7,7 @@ import 'react-time-picker/dist/TimePicker.css';
 
 function ContactSection() {
   return (
-    <section className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px]">
+    <section className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px] animate-fade-in animation-delay-1">
       <h2 className="box-border relative shrink-0 mt-5 h-auto text-7xl font-extrabold text-center text-[#282828]">
         Get in Touch
       </h2>
@@ -84,7 +84,7 @@ function ContactForm() {
 
     return (
       <form onSubmit={handleSubmit}>
-      <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 mt-10 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5">
+      <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 mt-10 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-3">
         <div className="flex gap-5 max-sm:flex-col max-md:gap-0">
           <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
             <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 mt-5 h-auto">
@@ -212,7 +212,7 @@ function ContactForm() {
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
               <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                 <div className="box-border flex relative flex-col shrink-0 pb-8 mb-auto h-auto">
-                  <div className="box-border flex relative flex-col shrink-0 pb-8 ml-52 h-auto max-md:mx-5 max-sm:mx-5">
+                  <div className="box-border flex relative flex-col shrink-0 pb-8 ml-52 h-auto max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-1">
                     <img
                       src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a"
                       alt="Dentist office interior"
