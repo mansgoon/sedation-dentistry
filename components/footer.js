@@ -28,7 +28,7 @@ const footerSections = [
 
 export const Footer = () => {
   return (
-    <footer className="flex gap-5 justify-between items-start px-16 pt-20 pb-9 mt-32 w-full bg-stone-900 max-md:flex-wrap max-md:px-5 max-md:mt-10 max-md:max-w-full">
+    <footer className="flex gap-5 justify-between items-start px-16 pt-20 pb-9 w-full bg-stone-900 max-md:flex-wrap max-md:px-5 max-md:max-w-full">
       {footerSections.map((section, index) => (
         <FooterSection key={index} {...section} />
       ))}

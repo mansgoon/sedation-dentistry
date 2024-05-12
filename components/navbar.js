@@ -1,6 +1,7 @@
 'use client'
 import * as React from "react";
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
 
 function Logo() {
   return (
@@ -14,9 +15,16 @@ function Logo() {
 }
 
 function NavigationLink({ children, href }) {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
   return (
     <Link href={href} passHref>
-      <div className="text-[#282828] cursor-pointer hover:text-[#5BA3BB] transition-colors duration-100">
+      <div
+        className={`text-[#282828] cursor-pointer hover:text-[#5BA3BB] transition-colors duration-100 ${
+          isActive ? 'text-[#5BA3BB]' : ''
+        }`}
+      >
         {children}
       </div>
     </Link>

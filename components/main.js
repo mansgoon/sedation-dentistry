@@ -1,7 +1,6 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import Link from 'next/link';
-import Footer from "./footer.js";
 
 const ServiceItem = ({ imageSrc, title, description }) => (
   <div className="flex flex-col grow pb-5 max-md:mt-10 max-sm:text-center max-md:items-center">
@@ -265,7 +264,7 @@ export function MyComponent() {
       <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]" maxWidth={1200} lazyLoad={false}>
         <section className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px]" />
       </div>
-      <section className="flex flex-col ml-14 max-md:mr-14">
+      <section className="flex flex-col ml-14 max-md:mr-14 mb-32">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
           <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full animate-fade-in scroll-trigger">
             <img
@@ -285,7 +284,6 @@ export function MyComponent() {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 }

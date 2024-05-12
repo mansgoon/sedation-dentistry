@@ -4,7 +4,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from 'react';
 import 'react-time-picker/dist/TimePicker.css';
-import Footer from "./footer.js";
 
 function ContactSection() {
   return (
@@ -12,6 +11,11 @@ function ContactSection() {
       <h2 className="box-border relative shrink-0 mt-5 h-auto text-7xl font-extrabold text-center text-[#282828]">
         Get in Touch
       </h2>
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/b91c111f1d616b6fc334635a034ddcffabcc5a879a025724c72710e5a216d0c0?apiKey=ea3aca9057654e45a61207978509cdea&"
+        className="aspect-[33.33] fill-slate-400 w-[400px] mx-auto max-sm:w-[240px]"
+      />
       <p className="box-border relative shrink-0 mx-auto mt-5 h-auto font-light text-zinc-400 max-sm:mx-auto max-sm:text-sm max-sm:text-center">
         Book an Appointment to treat your teeth right now.
       </p>
@@ -289,7 +293,6 @@ function ContactForm() {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
     );
   }
