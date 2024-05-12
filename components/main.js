@@ -209,7 +209,7 @@ export function MyComponent() {
                   BOOK AN APPOINTMENT
                 </button>
                 </Link>
-                <a href="/contact" className="py-1 ml-4 text-sm border-b-2 border-solid border-[#5BA3BB] text-[#5BA3BB] max-md:hidden max-sm:hidden hover:text-[#057BA2] hover:scale-105 transition-transform duration-100">
+                <a href="/services" className="py-1 ml-4 text-sm border-b-2 border-solid border-[#5BA3BB] text-[#5BA3BB] max-md:hidden max-sm:hidden hover:text-[#057BA2] hover:scale-105 transition-transform duration-100">
                   LEARN MORE
                 </a>
               </div>
