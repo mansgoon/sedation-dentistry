@@ -84,7 +84,7 @@ function ContactForm() {
 
     return (
       <form onSubmit={handleSubmit}>
-      <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 mt-10 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-3">
+      <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 mt-5 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-3">
         <div className="flex gap-5 max-sm:flex-col max-md:gap-0">
           <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
             <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 mt-5 h-auto">

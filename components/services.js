@@ -21,7 +21,7 @@ const ServiceCard = ({ icon, title, description, learnMoreLink, delay, expandedC
     };
   
     return (
-      <div className={`box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto bg-white rounded-lg border-2 border-solid shadow-lg border-slate-400 border-opacity-0 max-md:ml-5 max-sm:mx-5 max-md:mr-5 hover:scale-105 transition-transform duration-300`}>
+      <div className={`box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto bg-white rounded-lg border-2 border-solid shadow-lg border-slate-400 border-opacity-0 max-md:ml-5 max-sm:mx-5 max-md:mr-10 max-md:ml-10 hover:scale-105 transition-transform duration-300 `}>
         <div className="box-border flex relative flex-col shrink-0 mt-5 h-[57px]">
           <img
             loading="lazy"
@@ -71,7 +71,9 @@ const services = [
     title: "Preventative Care",
     description: (
       <>
-        Regular checkups and cleanings every six months are essential for maintaining healthy teeth and gums. Poor oral hygiene can lead to serious consequences, especially in children. During a checkup, the dentist examines for signs of problems, including decay and oral cancer. Dental cleaning removes plaque, tartar and polishes teeth. Additional preventative measures include brushing and flossing regularly, using fluoride, eating a balanced diet, orthodontics, sealants, and avoiding smoking to prevent future dental problems.&nbsp;
+        Regular dental checkups and cleanings every 6 months are crucial for maintaining healthy teeth and gums. Between appointments, consistent brushing and flossing is essential. Professional cleanings remove plaque and tartar that can't be eliminated through regular oral hygiene. During checkups, dentists examine for issues like tooth decay, gum disease, and oral cancer, allowing for early detection and treatment.<br />
+        <br />Children especially can suffer serious consequences from poor oral hygiene, including eating, sleeping, and behavioral difficulties, infections, and low self-esteem. Sedation dentistry is available for uncooperative children.<br />
+        <br />Other preventative measures include using fluoride products, maintaining a balanced diet low in sugar/carbs, wearing mouth guards for sports, getting orthodontic treatment for misaligned teeth, applying sealants on molars, and avoiding smoking which increases plaque buildup and oral cancer risk.&nbsp;
         <br />
       </>
     ),
@@ -104,7 +106,9 @@ const services = [
     title: "Oral Surgery",
     description: (
       <>
-        Wisdom tooth removal involves opening the gum tissue, removing any covering bone, separating the connecting tissue, and extracting the tooth. At Awake or Asleep, we offer several sedation options, including conscious sedation and general anesthesia, to minimize pain and discomfort during the procedure. After surgery, patients should follow post-operative instructions, such as biting on gauze pads, avoiding physical activity, gradually progressing to solid foods, rinsing with warm salt water, and refraining from smoking to ensure proper healing.&nbsp;
+        Wisdom teeth often cause problems between ages 15-25 when emerging, such as impaction, infection, or improper angles leading to crowding. Removal involves opening the gum tissue, removing bone covering the tooth, separating connective tissue, and extracting the tooth. Sedation options like laughing gas, oral/IV sedation, or general anesthesia are available for comfort.<br />
+        <br />Post-surgery, bite on gauze pads, avoid biting cheeks/tongue, apply ice packs for 24 hours then warm compresses, rest, eat soft foods, avoid straws/smoking, rinse with salt water, and gently brush nearby.<br />
+        <br />For root canals when the nerve is infected/damaged, the procedure involves removing the infected pulp. Signs indicating one may be needed include pain with hot/cold, darkening tooth, gum tenderness/swelling, or pimples on the gums. With modern anesthetics, root canals are no more painful than fillings. Sedation is also an option. Most are completed in one visit unless complications arise. Root canals allow you to save your natural tooth rather than extracting.&nbsp;
         <br />
       </>
     ),
@@ -164,7 +168,7 @@ export function ServicePage() {
         </section>
       </div>
       <div className="box-border flex relative flex-col shrink-0 pb-8 h-auto">
-        <div className="box-border flex relative flex-col shrink-0 pb-8 mt-5 mb-32 h-auto">
+        <div className="box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto">
           <div className="box-border flex relative flex-col shrink-0 mt-5 bg-center bg-cover bg-[url(https://cdn.builder.io/api/v1/image/assets/TEMP/59c731ff3ec0ed08f28a50812e69ce7f4a895bedd99ce9beae712e0f59f282d9?apiKey=ea3aca9057654e45a61207978509cdea&)] min-h-screen min-w-screen">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
               <div className="flex flex-col w-6/12 ml-[200px] max-md:ml-0 max-md:w-full ">

@@ -18,12 +18,29 @@ function NavigationLink({ children, href }) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
+  const handleClick = (e) => {
+    if (href.startsWith('/#')) {
+      const targetId = href.slice(2);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        const currentPath = window.location.pathname;
+        if (currentPath !== '/') {
+          window.location.href = '/' + href;
+        } else {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
   return (
     <Link href={href} passHref>
       <div
         className={`text-[#282828] cursor-pointer hover:text-[#5BA3BB] transition-colors duration-100 ${
           isActive ? 'text-[#5BA3BB]' : ''
         }`}
+        onClick={handleClick}
       >
         {children}
       </div>
@@ -34,7 +51,7 @@ function NavigationLink({ children, href }) {
 function NavigationMenu() {
   const navigationItems = [
     { label: "HOME", href: "/" },
-    { label: "ABOUT", href: "/about" },
+    { label: "ABOUT", href: "/#about" },
     { label: "SERVICES", href: "/services" },
     { label: "CONTACT", href: "/contact" },
   ];

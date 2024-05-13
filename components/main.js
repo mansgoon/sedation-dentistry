@@ -262,7 +262,7 @@ export function MyComponent() {
         </div>
       </section>
       <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]" maxWidth={1200} lazyLoad={false}>
-        <section className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px]" />
+        <section id="about" className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px]" />
       </div>
       <section className="flex flex-col ml-14 max-md:mr-14 mb-32">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
