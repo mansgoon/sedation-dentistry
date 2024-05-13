@@ -6,7 +6,7 @@ const ServiceItem = ({ imageSrc, title, description }) => (
   <div className="flex flex-col grow pb-5 max-md:mt-10 max-sm:text-center max-md:items-center">
     <img src={imageSrc} alt={title} className="w-10 aspect-square max-sm:mx-auto" />
     <div className="mt-6 text-xl tracking-wider text-[#282828] font-medium">{title}</div>
-    <div className="mt-9 text-lg tracking-widest leading-9 text-zinc-400">{description}</div>
+    <div className="mt-9 text-lg tracking-widest leading-9 text-zinc-400 max-md:text-center">{description}</div>
   </div>
 );
 
@@ -247,7 +247,7 @@ export function MyComponent() {
                     {services.slice(3).map((service, index) => (
                       <div
                         key={index}
-                        className={`flex flex-col w-[33%] max-md:ml-0 max-md:w-full ${
+                        className={`flex flex-col w-[33%] max-md:ml-0 max-md:w-full max-md:text-center ${
                           index === 1 ? "ml-5" : ""
                         } animate-fade-in scroll-trigger`}
                       >
