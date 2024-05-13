@@ -2,6 +2,17 @@
 import * as React from "react";
 
 const ServiceCard = ({ icon, title, description, learnMoreLink, delay, expandedCard, setExpandedCard }) => {
+    const contentRef = React.useRef(null);
+    const [height, setHeight] = React.useState(0);
+  
+    React.useEffect(() => {
+      if (expandedCard === title) {
+        setHeight(contentRef.current.scrollHeight);
+      } else {
+        setHeight(0);
+      }
+    }, [expandedCard, title]);
+  
     const getFirstSentence = (text) => {
       if (typeof text === 'string') {
         return text.split('.')[0] + '.';
@@ -19,10 +30,15 @@ const ServiceCard = ({ icon, title, description, learnMoreLink, delay, expandedC
             className="box-border object-cover overflow-hidden shrink-0 mx-auto mt-5 w-14 aspect-square min-h-[20px] min-w-[20px]"
           />
         </div>
-        <section className="box-border flex relative flex-col grow shrink-0 self-stretch px-10 py-5 mx-auto w-full max-w-[1200px] min-h-[100px]">
-          <h3 className="box-border relative shrink-0 mx-auto mt-5 mb-2.5 h-auto font-extrabold text-xl text-[#282828]">
-            {title}
-          </h3>
+        <section
+        ref={contentRef}
+        style={{ height }}
+        className="box-border flex relative flex-col grow shrink-0 self-stretch px-10 py-5 mx-auto w-full max-w-[1200px] min-h-[100px] overflow-hidden transition-height duration-200"
+      >
+        <h3 className="box-border relative shrink-0 mx-auto mt-5 mb-2.5 h-auto font-extrabold text-xl text-[#282828]">
+          {title}
+        </h3>
+        <div className="relative">
           <p className="box-border relative shrink-0 mx-auto h-auto text-center text-zinc-500">
             {expandedCard === title ? (
               description
@@ -30,17 +46,21 @@ const ServiceCard = ({ icon, title, description, learnMoreLink, delay, expandedC
               getFirstSentence(typeof description === 'string' ? description : description.props.children.join(' '))
             )}
           </p>
-          <a
-            href={learnMoreLink}
-            onClick={(e) => {
-              e.preventDefault();
-              setExpandedCard(expandedCard === title ? null : title);
-            }}
-            className="box-border relative shrink-0 mx-auto mt-5 h-auto font-semibold underline text-[#5BA3BB] hover:text-[#057BA2] hover:scale-105 transition-transform duration-100"
-          >
-            {expandedCard === title ? 'Read Less' : 'Learn More'}
-          </a>
-        </section>
+          {expandedCard !== title && (
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white to-white opacity-65"></div>
+          )}
+        </div>
+      </section>
+      <a
+        href={learnMoreLink}
+        onClick={(e) => {
+          e.preventDefault();
+          setExpandedCard(expandedCard === title ? null : title);
+        }}
+        className="box-border relative shrink-0 mx-auto mt-5 h-auto font-semibold underline text-[#5BA3BB] hover:text-[#057BA2] hover:scale-105 transition-transform duration-100"
+      >
+        {expandedCard === title ? 'Read Less' : 'Learn More'}
+      </a>
       </div>
     );
   };
@@ -70,13 +90,12 @@ const services = [
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/43041c4f8f1663181981448c51d224d6eefc5808bdf3b2c8bc5ef8360292f7b4?apiKey=ea3aca9057654e45a61207978509cdea&",
-    title: "Sedation Dentistry",
+    title: "Test 3",
     description: (
-      <>
-        <span className="not-italic text-[medium]">Lorem ipsum&nbsp;</span>
-        <span className="not-italic text-[medium]">Lorem ipsum&nbsp;</span>
-        <span className="not-italic text-[medium]">Lorem&nbsp;</span>
-      </>
+        <>
+          Hello Bro. Hello Bro.Hello Bro.Hello Bro.Hello Bro.Hello Bro.Hello Bro.Hello Bro.Hello Bro.Hello Bro.Hello Bro.Hello Bro.Hello Bro.Hello Bro.&nbsp;
+          <br />
+        </>
     ),
     learnMoreLink: "#",
   },
@@ -105,7 +124,7 @@ const services = [
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/43041c4f8f1663181981448c51d224d6eefc5808bdf3b2c8bc5ef8360292f7b4?apiKey=ea3aca9057654e45a61207978509cdea&",
-    title: "Sedation Dentistry",
+    title: "Test 2",
     description: (
       <>
         <span className="not-italic text-[medium]">Lorem ipsum&nbsp;</span>
