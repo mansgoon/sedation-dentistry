@@ -219,14 +219,14 @@ export function MyComponent() {
         </section>
       </div>
       <section className="flex flex-col justify-center px-14 py-20 mt-20 w-full max-md:flex max-md:flex-col max-md:pr-14 max-md:pl-5 max-md:mt-10 max-md:max-w-full bg-[#DDEDF4]">
-        <div className="mt-14 mb-5 max-md:mt-10 max-md:mr-1.5 max-md:max-w-full">
+        <div className="mt-14 mb-5 max-md:mt-10 max-md:max-w-full">
           <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-            <div className="flex flex-col w-[31%] max-md:ml-0 max-md:w-full animate-fade-in scroll-trigger">
+            <div className="flex flex-col w-[31%] max-md:ml-5 max-md:w-full animate-fade-in scroll-trigger">
               <h2 className="self-stretch my-auto text-6xl font-bold tracking-tighter text-[#282828] max-md:my-auto max-md:max-w-full max-md:text-4xl max-md:text-center max-sm:ml-10 max-sm:tracking-tighter max-sm:text-center">
                 Everything you need in one place.
               </h2>
             </div>
-            <div className="flex flex-col ml-5 w-[69%] max-md:ml-0 max-md:w-full">
+            <div className="flex flex-col ml-5 w-[69%] max-md:ml-5 max-md:w-full">
               <div className="flex flex-col flex-wrap grow content-start max-md:mt-10 max-md:max-w-full">
                 <div className="px-px max-md:flex max-md:flex-col max-md:max-w-full max-sm:ml-10">
                   <div className="flex gap-5 max-md:flex-col max-md:gap-0">
@@ -242,7 +242,7 @@ export function MyComponent() {
                     ))}
                   </div>
                 </div>
-                <div className="mt-12 max-md:mt-10 max-md:max-w-full max-sm:ml-10">
+                <div className="mt-12 max-md:mt-10 max-md:max-w-full max-sm:ml-5">
                   <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                     {services.slice(3).map((service, index) => (
                       <div
@@ -256,11 +256,18 @@ export function MyComponent() {
                     ))}
                   </div>
                 </div>
+                <div className="hidden max-md:flex max-md:justify-center max-md:mt-5 max-sm:ml-5 max-md:ml-0">
+                  <a href="/services" className="py-1 text-sm border-b-2 border-solid border-[#5BA3BB] text-[#5BA3BB] hover:text-[#057BA2] hover:scale-105 transition-transform duration-100">
+                    LEARN MORE
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
       </section>
+      
       <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]" maxWidth={1200} lazyLoad={false}>
         <section id="about" className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px]" />
       </div>

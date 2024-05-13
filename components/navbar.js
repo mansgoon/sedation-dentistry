@@ -7,9 +7,9 @@ function Logo() {
   return (
     <img
       loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/65ad843a80879d8d7185c6ed0b404be3125a15f5b3f1f6273caa4765280b6724?apiKey=ea3aca9057654e45a61207978509cdea&"
+      src="https://cdn.builder.io/api/v1/image/assets%2Fea3aca9057654e45a61207978509cdea%2F2e2f6a8c157a44ce8e15c88dc3e2e06b"
       alt="Company logo"
-      className="shrink-0 ml-5 aspect-[1.52] w-[61px] max-sm:ml-5"
+      className="shrink-0 ml-5 aspect-[1.02] w-[50px] max-sm:ml-5"
     />
   );
 }
@@ -101,7 +101,7 @@ function Header() {
       <div className="flex gap-2.5 text-2xl tracking-wide text-[#282828] hover:scale-105 transition-transform duration-300">
         <Logo/>
         <div className="flex-auto my-auto text-[#282828] hidden md:block">
-          Awake <span className="text-[#5BA3BB]">or</span> Asleep
+          Awake <span className="text-[#688DAC]">or</span> Asleep
         </div>
       </div>
     </Link>
