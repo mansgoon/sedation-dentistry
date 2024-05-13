@@ -19,17 +19,13 @@ function NavigationLink({ children, href }) {
   const isActive = pathname === href;
 
   const handleClick = (e) => {
-    if (href.startsWith('/#')) {
+    const isSamePageLink = href.startsWith('/#') && pathname === '/';
+    if (isSamePageLink) {
+      e.preventDefault();
       const targetId = href.slice(2);
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        e.preventDefault();
-        const currentPath = window.location.pathname;
-        if (currentPath !== '/') {
-          window.location.href = '/' + href;
-        } else {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
+        targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
