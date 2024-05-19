@@ -180,7 +180,7 @@ export function MyComponent() {
             </div>
           </div>
         </section>
-        <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]" maxwidth={1200} lazyLoad={false}>
+        <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]" maxwidth="1200" lazyload="false">
           <section className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px]" />
         </div>
         <section className="flex flex-col max-md:mr-5">
@@ -268,9 +268,10 @@ export function MyComponent() {
 
       </section>
       
-      <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]" maxWidth={1200} lazyLoad={false}>
+      <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]" maxwidth="1200" lazyload="false">
         <section id="about" className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px]" />
       </div>
+      
       <section className="flex flex-col ml-14 max-md:mr-14 mb-32">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0">
           <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full animate-fade-in scroll-trigger">
@@ -286,7 +287,7 @@ export function MyComponent() {
               Professionals you can trust. Period.
             </h2>
             <p className="mt-5 mr-10 mb-auto ml-5 text-lg leading-9 text-zinc-400 max-md:max-w-full max-md:text-center">
-              Dr. Golovanov is a prominent dental specialist, who knows how to treat every problem. Over 25 years of experience translates into bespoke treatment of every patient .
+            Awake or Asleep Dentistry has been providing sedation dentistry in Mississauga for over 15 years. We offer several different sedation options for your comfort, ranging from light conscious sedation, deep conscious sedation, to fully asleep. Call, or schedule a consultation to discuss your options, or look around for more information.
             </p>
           </div>
         </div>
