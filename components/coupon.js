@@ -1,19 +1,26 @@
 'use client'
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function FormInput({ type, placeholder, name, className, required }) {
-  return (
-    <input
-      type={type}
-      placeholder={placeholder}
-      name={name}
-      id={name}
-      className={className}
-      required={required}
-      aria-label={placeholder}
-    />
-  );
-}
+    return (
+      <div className="relative">
+        <input
+          type={type}
+          placeholder={placeholder}
+          name={name}
+          id={name}
+          className={`pl-10 max-md:w-full ${className}`}
+          required={required}
+          aria-label={placeholder}
+        />
+        <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+          <FontAwesomeIcon icon={faEnvelope} className="text-gray-400" />
+        </div>
+      </div>
+    );
+  }
 
 export function Coupon() {
   const [isVisible, setIsVisible] = useState(false);
@@ -62,8 +69,10 @@ export function Coupon() {
           <div className="box-border flex flex-col shrink-0 my-5">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
               <div className="flex flex-col justify-center w-6/12 max-md:ml-0 max-md:w-full">
-                <h2 className="box-border relative shrink-0 mt-5 h-auto text-3xl font-bold max-md:mx-auto text-[#282828]">100$ OFF COUPON</h2>
-                <p className="box-border relative shrink-0 mt-5 h-auto max-md:mx-auto text-neutral-500">Enter your email to receive the coupon.</p>
+                <h2 className="box-border relative shrink-0 mt-5 h-auto text-3xl font-bold max-md:mx-auto text-[#282828]">
+                Claim Your <span className="text-[#5BA3BB]">$100</span><br />Discount Today!
+                </h2>
+                <p className="box-border relative shrink-0 mt-5 h-auto max-md:mx-auto text-neutral-500 max-sm:text-center">Enter your email to receive the coupon.</p>
                 <form onSubmit={handleSubmit}>
                   <label htmlFor="email-popup" className="sr-only">Enter your email</label>
                   <FormInput type="text" placeholder="Enter your email" name="email-popup" className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1" required={false} />
@@ -74,7 +83,7 @@ export function Coupon() {
                 </form>
               </div>
               <div className="flex flex-col justify-center w-6/12 max-md:ml-0 max-md:w-full">
-                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a" alt="" className="box-border object-cover overflow-hidden shrink-0 w-full aspect-[1.42] min-h-[20px] min-w-[20px] max-md:mt-5 max-sm:mt-5" />
+                <img loading="lazy" src="https://sedationdentistry.ca/wp-content/uploads/2016/10/pop-up.jpg" alt="" className="box-border object-cover overflow-hidden shrink-0 w-full aspect-[1.42] min-h-[20px] min-w-[20px] max-md:mt-5 max-sm:mt-5" />
               </div>
             </div>
           </div>
