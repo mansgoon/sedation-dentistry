@@ -17,7 +17,7 @@ function ContactSection() {
         className="aspect-[33.33] fill-slate-400 w-[400px] mx-auto max-sm:w-[240px]"
       />
       <p className="box-border relative shrink-0 mx-auto mt-5 h-auto font-light text-zinc-400 max-sm:mx-auto max-sm:text-sm max-sm:text-center">
-        Book an Appointment to treat your teeth right now.
+        Request a consultation to treat your teeth right now.
       </p>
     </section>
   );
@@ -147,7 +147,7 @@ function ContactForm() {
           <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
             <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 h-auto">
               <label htmlFor="date" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium">
-                Select date
+                Preferred Date
               </label>
               <DatePicker
                 id="date"
@@ -163,7 +163,7 @@ function ContactForm() {
           <div className="flex flex-col ml-5 w-1/2 max-sm:ml-0 max-sm:w-full">
             <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5  h-auto">
               <label htmlFor="time" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium"> 
-                Select time
+              Preferred Time
               </label>
               <input
                 type="time"
