@@ -50,6 +50,7 @@ export function Coupon() {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
       <div className="box-border flex flex-col p-10 mx-auto rounded-lg bg-white max-w-[900px] min-h-[100px] relative ml-5 mr-5 max-md:m-20 max-sm:m-5">
+        
         <button
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 hover:scale-105 transition-transform duration-100"
           onClick={handleClose}
@@ -65,6 +66,7 @@ export function Coupon() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
+
         <section className="box-border flex flex-col grow shrink-0 self-stretch p-10 w-full rounded-lg max-w-[1200px] min-h-[100px]">
           <div className="box-border flex flex-col shrink-0 my-5">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
