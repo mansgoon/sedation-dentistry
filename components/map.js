@@ -12,8 +12,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 43.5833078,
-  lng: -79.6395778,
+  lat: 43.5833287,
+  lng: -79.6396899,
 };
 
 export function Map() {
@@ -33,6 +33,8 @@ export function Map() {
         // Add the script to load Google Maps
         const script = document.createElement('script');
         script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAiYY_rGwhGOP2g0l9NP9AnZTp9ShVRtgg`;
+        script.async = true;
+        script.defer = true;
         script.onload = handleScriptLoad;
         document.head.appendChild(script);
       }
