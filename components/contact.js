@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useState } from 'react';
 import 'react-time-picker/dist/TimePicker.css';
+import { Map } from '@/components/map.js';
 
 function ContactSection() {
   return (
@@ -213,32 +214,30 @@ function ContactForm() {
               <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                 <div className="box-border flex relative flex-col shrink-0 pb-8 mb-auto h-auto">
                   <div className="box-border flex relative flex-col shrink-0 pb-8 ml-52 h-auto max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-1">
-                    <img
-                      src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a"
-                      alt="Dentist office interior"
-                      className="box-border object-cover overflow-hidden shrink-0 mt-5 w-full rounded-lg border-2 border-solid aspect-[1.42] border-[#5BA3BB] min-h-[20px] min-w-[20px]"
-                    />
-                    <div className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg min-h-[125px] opacity-[1] border-2 bg-white flex items-center">
-                      <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
-                        <img
-                          loading="lazy"
-                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/97161b38cead17a8fca63d577353b946ffb3229023176a79941ddd820fec9de0?apiKey=ea3aca9057654e45a61207978509cdea&"
-                          className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
-                        />
-                      </div>
-                      <div className="flex flex-col ml-5 w-[83%] max-md:w-auto">
-                        <div className="flex flex-col grow">
-                          <div className="text-base tracking-wide leading-6 text-zinc-800 font-bold">
-                            Office Address
-                          </div>
-                          <div className="text-base tracking-wide leading-6 text-gray-700 font-medium">
-                            325 Central Parkway West,
-                            <br />
-                            Mississauga, ON L5B3X9
+                    <Map />
+                    <a href="https://www.google.com/maps/place/Awake+Or+Asleep/@43.5833335,-79.6422659,16z/data=!3m2!4b1!5s0x882b46d757741dad:0xe63706c22d40dff8!4m6!3m5!1s0x882b46d989280177:0xa38f38e830f9d97d!8m2!3d43.5833296!4d-79.639691!16s%2Fg%2F1tf6bp9y?hl=en-US&entry=ttu" target="_blank" rel="noopener noreferrer">
+                      <div className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg min-h-[125px] opacity-[1] border-2 bg-white flex items-center">
+                        <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
+                          <img
+                            loading="lazy"
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/97161b38cead17a8fca63d577353b946ffb3229023176a79941ddd820fec9de0?apiKey=ea3aca9057654e45a61207978509cdea&"
+                            className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
+                          />
+                        </div>
+                        <div className="flex flex-col ml-5 w-[83%] max-md:w-auto">
+                          <div className="flex flex-col grow">
+                            <div className="text-base tracking-wide leading-6 text-zinc-800 font-bold">
+                              Office Address
+                            </div>
+                            <div className="text-base tracking-wide leading-6 text-gray-700 font-medium">
+                              325 Central Parkway West,
+                              <br />
+                              Mississauga, ON L5B3X9
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
                     <div className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg min-h-[125px] opacity-[1] border-2 bg-white flex items-center">
                       <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                         <img
