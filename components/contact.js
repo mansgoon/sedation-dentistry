@@ -6,6 +6,7 @@ import { useState } from 'react';
 import 'react-time-picker/dist/TimePicker.css';
 import { Map } from '@/components/map.js';
 import emailjs from 'emailjs-com';
+import ToastDemo from '@/components/ui/Toast.jsx';
 
 function ContactSection() {
   return (
@@ -24,6 +25,8 @@ function ContactSection() {
     </section>
   );
 }
+
+// email config settings
 
 emailjs.init('hZQClQ56Ff1XYUW3H');
 
@@ -59,6 +62,9 @@ function ContactForm() {
     const [selectedDate, setSelectedDate] = React.useState(null);
     const [selectedTime, setSelectedTime] = React.useState('10:00');
 
+    const [showToast, setShowToast] = useState(false);
+    const [toastDate, setToastDate] = useState(null);
+
     const handleTimeChange = (event) => {
       setSelectedTime(event.target.value);
     };
@@ -88,7 +94,6 @@ function ContactForm() {
         const result = await sendEmail(formData);
   
         if (result.success) {
-          alert('Form submitted successfully');
           setFormData({
             firstName: '',
             lastName: '',
@@ -98,6 +103,8 @@ function ContactForm() {
             time: '10:00',
             messageBox: '',
           });
+          setShowToast(true);
+          setToastDate(formData.date);
         } else {
           alert('Error submitting form');
         }
@@ -231,6 +238,7 @@ function ContactForm() {
           Submit
         </button>
       </div>
+      {showToast && <ToastDemo open={showToast} onOpenChange={setShowToast} date={toastDate} />}
       </form>
     );
   }
