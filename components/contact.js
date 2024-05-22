@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useState } from 'react';
 import 'react-time-picker/dist/TimePicker.css';
 import { Map } from '@/components/map.js';
+import emailjs from 'emailjs-com';
 
 function ContactSection() {
   return (
@@ -22,6 +23,35 @@ function ContactSection() {
       </p>
     </section>
   );
+}
+
+emailjs.init('hZQClQ56Ff1XYUW3H');
+
+async function sendEmail(formData) {
+  const { firstName, lastName, email, phoneNumber, date, time, messageBox } = formData;
+
+  const templateParams = {
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    date: date ? date.toDateString() : '',
+    time,
+    messageBox,
+  };
+
+  try {
+    // Send the email using EmailJS
+    const response = await emailjs.send('service_mcmzjiq', 'template_1u9osbn', templateParams);
+
+    console.log('SUCCESS!', response.status, response.text);
+    return { success: true };
+  } catch (error) {
+    console.log('FAILED...', error);
+    console.error('Error sending email:', error);
+    console.error('Error details:', error.response);
+    return { success: false };
+  }
 }
 
 function ContactForm() {
@@ -55,15 +85,9 @@ function ContactForm() {
       e.preventDefault();
   
       try {
-        const response = await fetch('/contact/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
+        const result = await sendEmail(formData);
   
-        if (response.ok) {
+        if (result.success) {
           alert('Form submitted successfully');
           setFormData({
             firstName: '',
@@ -97,6 +121,8 @@ function ContactForm() {
                 id="firstName"
                 placeholder="First name"
                 name="firstName"
+                value={formData.firstName}
+                onChange={handleChange}
                 className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
                 required
               />
@@ -112,6 +138,8 @@ function ContactForm() {
               id="lastName"
               placeholder="Last name"
               name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
               className="box-border flex relative flex-col shrink-0 w-full p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
               required
             />
@@ -127,6 +155,8 @@ function ContactForm() {
             id="email"
             placeholder="you@email.com"
             name="email"
+            value={formData.email}
+            onChange={handleChange}
             className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
             required
           />
@@ -140,6 +170,8 @@ function ContactForm() {
             id="phoneNumber"
             placeholder="+1 (555) 000-0000"
             name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
             className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1" 
             required
           />
@@ -153,8 +185,8 @@ function ContactForm() {
               <DatePicker
                 id="date"
                 name="date"
-                selected={selectedDate}
-                onChange={(date) => setSelectedDate(date)}
+                selected={formData.date}
+                onChange={handleDateChange}
                 className="box-border flex relative flex-col shrink-0 w-full mt-5 rounded border border-solid border-zinc-400 text-[#282828] focus:outline-none focus:ring-1 caret-zinc-800 p-2.5"
                 placeholderText="Select a date"
                 required
@@ -170,8 +202,8 @@ function ContactForm() {
                 type="time"
                 id="time"
                 name="time"
-                value={selectedTime}
-                onChange={handleTimeChange}
+                value={formData.time}
+                onChange={handleChange}
                 className="box-border flex relative flex-col shrink-0 w-full p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
                 required
               />
@@ -186,6 +218,8 @@ function ContactForm() {
             id="messageBox"
             placeholder="Describe what you'd like to discuss. e.g. sedation, extraction, root canal..."
             name="messageBox"
+            value={formData.messageBox}
+            onChange={handleChange}
             className="box-border flex relative flex-col shrink-0 px-2.5 pt-2.5 pb-20 mt-5 rounded border border-solid border-stone-300 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
             required
           ></textarea>

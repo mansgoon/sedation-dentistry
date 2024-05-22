@@ -1,38 +1,29 @@
-import nodemailer from 'nodemailer';
+import emailjs from 'emailjs-com';
 
 export default async function sendEmail(req, res) {
   if (req.method === 'POST') {
     const { firstName, lastName, email, phoneNumber, date, time, messageBox } = req.body;
 
-    // Create a transporter using your email service provider's SMTP settings
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.example.com',
-      port: 587,
-      auth: {
-        user: 'your-email@example.com',
-        pass: 'your-email-password',
-      },
-    });
+    const templateParams = {
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      date,
+      time,
+      messageBox,
+    };
 
     try {
-      // Send the email
-      await transporter.sendMail({
-        from: 'your-email@example.com',
-        to: 'your-company-email@example.com',
-        subject: 'New Contact Form Submission',
-        text: `
-          First Name: ${firstName}
-          Last Name: ${lastName}
-          Email: ${email}
-          Phone Number: ${phoneNumber}
-          Date: ${date}
-          Time: ${time}
-          Message: ${messageBox}
-        `,
+      // Send the email using EmailJS
+      const response = await emailjs.send('service_mcmzjiq', 'template_1u9osbn', templateParams, {
+        publicKey: 'StAA8K8n28xAZCT07',
       });
 
+      console.log('SUCCESS!', response.status, response.text);
       res.status(200).json({ message: 'Email sent successfully' });
     } catch (error) {
+      console.log('FAILED...', error);
       console.error('Error sending email:', error);
       res.status(500).json({ message: 'Error sending email' });
     }
