@@ -2,6 +2,7 @@
 import * as React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { addDays, isAfter, isBefore, isToday, isWeekend } from 'date-fns';
 import { useState } from 'react';
 import 'react-time-picker/dist/TimePicker.css';
 import { Map } from '@/components/map.js';
@@ -57,6 +58,20 @@ async function sendEmail(formData) {
   }
 }
 
+function getDisabledDates(startDate, endDate) {
+  const disabledDates = [];
+  let currentDate = startDate;
+
+  while (currentDate <= endDate) {
+    if (isWeekend(currentDate) || isBefore(currentDate, new Date())) {
+      disabledDates.push(currentDate);
+    }
+    currentDate = addDays(currentDate, 1);
+  }
+
+  return disabledDates;
+}
+
 function ContactForm() {
   
     const [selectedDate, setSelectedDate] = React.useState(null);
@@ -86,6 +101,11 @@ function ContactForm() {
     const handleDateChange = (date) => {
       setFormData({ ...formData, date });
     };
+    
+    const startDate = new Date();
+    const endDate = new Date(2026, 11, 31); // December 31, 2024
+
+    const disabledDates = getDisabledDates(startDate, endDate);
   
     const handleSubmit = async (e) => {
       e.preventDefault();
@@ -199,6 +219,7 @@ function ContactForm() {
                 className="box-border flex relative flex-col shrink-0 w-full mt-5 rounded border border-solid border-zinc-400 text-[#282828] focus:outline-none focus:ring-1 caret-zinc-800 p-2.5"
                 placeholderText="Select a date"
                 required
+                excludeDates={disabledDates}
               />
             </div>
           </div>
