@@ -216,6 +216,7 @@ function ContactForm() {
                 name="date"
                 selected={formData.date}
                 onChange={handleDateChange}
+                minDate={new Date()}
                 className="box-border flex relative flex-col shrink-0 w-full mt-5 rounded border border-solid border-zinc-400 text-[#282828] focus:outline-none focus:ring-1 caret-zinc-800 p-2.5"
                 placeholderText="Select a date"
                 required
