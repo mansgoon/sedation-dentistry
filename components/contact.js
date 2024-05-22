@@ -179,6 +179,8 @@ function ContactForm() {
             name="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleChange}
+            pattern="[0-9]{10}"
+            title="Please enter a 10-digit phone number"
             className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1" 
             required
           />

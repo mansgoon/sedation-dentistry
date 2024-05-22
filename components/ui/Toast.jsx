@@ -11,7 +11,7 @@ const ToastDemo = ({ open, onOpenChange, date }) => {
         <Toast.Title className="ToastTitle">Consultation Requested</Toast.Title>
         <Toast.Description asChild>
           <p className="ToastDescription">
-            Our office will be in touch.<br /> Requested date: <span className='font-bold'>{formattedDate}</span>
+            Our office will be in touch<br /> Requested date: <span className='font-bold'>{formattedDate}</span>
           </p>
         </Toast.Description>
         <Toast.Action className="ToastAction" asChild altText="Close">

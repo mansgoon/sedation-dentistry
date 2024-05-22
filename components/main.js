@@ -206,7 +206,7 @@ export function MyComponent() {
               <div className="flex items-center">
                 <Link href="/contact" passHref>
                 <button className="box-border relative shrink-0 px-6 py-4 mr-4 text-xs text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-[white] max-md:mx-auto max-md:mt-5 max-sm:mx-auto max-sm:mt-5 hover:bg-[#057BA2] hover:scale-105 transition-transform duration-100">
-                  BOOK AN APPOINTMENT
+                  REQUEST APPOINTMENT
                 </button>
                 </Link>
                 <a href="/services" className="py-1 ml-4 text-sm border-b-2 border-solid border-[#5BA3BB] text-[#5BA3BB] max-md:hidden max-sm:hidden hover:text-[#057BA2] hover:scale-105 transition-transform duration-100">

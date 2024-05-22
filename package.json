@@ -26,6 +26,7 @@
     "react-datepicker": "^6.9.0",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
+    "react-phone-number-input": "^3.4.1",
     "react-time-picker": "^7.0.0"
   },
   "devDependencies": {

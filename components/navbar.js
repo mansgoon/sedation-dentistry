@@ -67,7 +67,7 @@ export function AppointmentButton() {
   return (
     <Link href="/contact" passHref>
     <button className="box-border relative shrink-0 px-6 pt-4 pb-4 text-xs tracking-wider text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-[white] hover:bg-[#057BA2] hover:scale-105 transition-all duration-100 transform">
-      BOOK AN APPOINTMENT
+      REQUEST APPOINTMENT
     </button>
     </Link>
   );
