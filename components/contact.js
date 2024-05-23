@@ -109,10 +109,23 @@ function ContactForm() {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-  
+    
+      // Convert time to AM/PM format
+      const [hours, minutes] = formData.time.split(':');
+      const time12h = new Date(0, 0, 0, hours, minutes).toLocaleTimeString('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: true,
+      });
+    
+      const formDataWithTime12h = {
+        ...formData,
+        time: time12h,
+      };
+    
       try {
-        const result = await sendEmail(formData);
-  
+        const result = await sendEmail(formDataWithTime12h);
+    
         if (result.success) {
           setFormData({
             firstName: '',
