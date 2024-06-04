@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar.js";
 import Footer from "@/components/footer.js";
 import Head from 'next/head';
+import { Coupon } from "@/components/coupon.js"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
         <Footer />
+        <Coupon/>
       </body>
     </html>
   );

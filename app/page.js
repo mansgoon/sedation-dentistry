@@ -6,7 +6,6 @@ import { Coupon } from "@/components/coupon.js";
 export default function Home() {
   return (
       <div>
-        <Coupon />
         <MyComponent />
       </div>
   );
