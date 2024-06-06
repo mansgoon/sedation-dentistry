@@ -5,9 +5,12 @@ import "react-datepicker/dist/react-datepicker.css";
 import { addDays, isAfter, isBefore, isToday, isWeekend } from 'date-fns';
 import { useState } from 'react';
 import 'react-time-picker/dist/TimePicker.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner, faFileMedical, faMaskVentilator } from '@fortawesome/free-solid-svg-icons';
 import { Map } from '@/components/map.js';
 import emailjs from 'emailjs-com';
 import ToastDemo from '@/components/ui/Toast.jsx';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 function ContactSection() {
   return (
@@ -23,6 +26,26 @@ function ContactSection() {
       <p className="box-border relative shrink-0 mx-auto mt-5 h-auto font-light text-zinc-400 max-sm:mx-auto max-sm:text-sm max-sm:text-center">
         Request a consultation to treat your teeth right now.
       </p>
+      <div className="flex justify-center space-x-4 mt-8">
+        <a
+          href="https://sedationdentistry.ca/wp-content/uploads/2014/05/medhistoryform.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-48 px-6 py-3 border border-[#5BA3BB] rounded-lg text-[#5BA3BB] hover:bg-[#5BA3BB] hover:text-white transition-colors hover:scale-105 transition-transform duration-200"
+        >
+          <FontAwesomeIcon icon={faFileMedical} className="mr-2" />
+          <span className="text-center">Patient History</span>
+        </a>
+        <a
+          href="https://sedationdentistry.ca/wp-content/uploads/2020/07/20191118-SurgiServices-AnaesQuestionnaire-2019_fill-v2_new.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center w-48 px-6 py-3 border border-[#5BA3BB] rounded-lg text-[#5BA3BB] hover:bg-[#5BA3BB] hover:text-white transition-colors hover:scale-105 transition-transform duration-200"
+        >
+          <FontAwesomeIcon icon={faMaskVentilator} className="mr-2" />
+          <span className="text-center">GA Form</span>
+        </a>
+      </div>
     </section>
   );
 }
@@ -31,7 +54,7 @@ function ContactSection() {
 
 emailjs.init('hZQClQ56Ff1XYUW3H');
 
-async function sendEmail(formData) {
+async function sendEmail(formData, recaptchaResponse) {
   const { firstName, lastName, email, phoneNumber, date, time, messageBox } = formData;
 
   const templateParams = {
@@ -42,6 +65,7 @@ async function sendEmail(formData) {
     date: date ? date.toDateString() : '',
     time,
     messageBox,
+    'g-recaptcha-response': recaptchaResponse,
   };
 
   try {
@@ -79,6 +103,7 @@ function ContactForm() {
 
     const [showToast, setShowToast] = useState(false);
     const [toastDate, setToastDate] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleTimeChange = (event) => {
       setSelectedTime(event.target.value);
@@ -101,6 +126,12 @@ function ContactForm() {
     const handleDateChange = (date) => {
       setFormData({ ...formData, date });
     };
+
+    const [recaptchaResponse, setRecaptchaResponse] = useState('');
+
+    const handleRecaptchaChange = (response) => {
+      setRecaptchaResponse(response);
+    };
     
     const startDate = new Date();
     const endDate = new Date(2026, 11, 31); // December 31, 2024
@@ -109,6 +140,14 @@ function ContactForm() {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
+      setLoading(true);
+    
+      // Check if reCAPTCHA is completed
+      if (!recaptchaResponse) {
+        alert('Please complete the reCAPTCHA.');
+        setLoading(false);
+        return;
+      }
     
       // Convert time to AM/PM format
       const [hours, minutes] = formData.time.split(':');
@@ -124,7 +163,7 @@ function ContactForm() {
       };
     
       try {
-        const result = await sendEmail(formDataWithTime12h);
+        const result = await sendEmail(formDataWithTime12h, recaptchaResponse);
     
         if (result.success) {
           setFormData({
@@ -138,18 +177,21 @@ function ContactForm() {
           });
           setShowToast(true);
           setToastDate(formData.date);
+          setRecaptchaResponse(''); // Reset reCAPTCHA response
         } else {
           alert('Error submitting form');
         }
       } catch (error) {
         console.error('Error submitting form:', error);
         alert('Error submitting form');
+      } finally {
+        setLoading(false);
       }
     };
 
     return (
       <form onSubmit={handleSubmit}>
-      <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 mt-5 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-3">
+      <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-3">
         <div className="flex gap-5 max-sm:flex-col max-md:gap-0">
           <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
             <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 mt-5 h-auto">
@@ -234,6 +276,7 @@ function ContactForm() {
                 placeholderText="Select a date"
                 required
                 excludeDates={disabledDates}
+                autoComplete="off"
               />
             </div>
           </div>
@@ -268,12 +311,24 @@ function ContactForm() {
             required
           ></textarea>
         </div>
-        <button
-          type="submit"
-          className="box-border relative shrink-0 px-6 py-4 mx-auto mt-5 text-base font-bold text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-white hover:bg-[#057BA2] hover:scale-105 transition-all duration-100 transform"
-        >
-          Submit
-        </button>
+        <div className="flex flex-col items-center">
+          <div className="w-full flex justify-center">
+            <button
+              type="submit"
+              className="box-border relative shrink-0 px-6 py-4 mt-5 text-base font-bold text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-white hover:bg-[#057BA2] hover:scale-105 transition-all duration-100 transform flex items-center justify-center"
+              style={{ width: '304px' }}
+            >
+              Submit
+              {loading && <FontAwesomeIcon icon={faSpinner} spin className="ml-2" />}
+            </button>
+          </div>
+          <ReCAPTCHA
+            sitekey="6LffsPEpAAAAAIidIeeQS9D21QOhguR14pKYdlbG"
+            onChange={handleRecaptchaChange}
+            className="mt-5"
+            style={{ display: 'inline-block', width: '304px' }}
+          />
+        </div>
       </div>
       {showToast && <ToastDemo open={showToast} onOpenChange={setShowToast} date={toastDate} />}
       </form>
