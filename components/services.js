@@ -21,7 +21,7 @@ const ServiceCard = ({ icon, title, description, learnMoreLink, delay, expandedC
     };
   
     return (
-      <div className={`box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto bg-white rounded-lg border-2 border-solid shadow-lg border-slate-400 border-opacity-0 max-md:ml-5 max-sm:mx-5 max-md:mr-10 max-md:ml-10 hover:scale-105 transition-transform duration-300 `}>
+      <div className={`box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto bg-white rounded-lg border-2 border-solid shadow-lg border-slate-400 border-opacity-0 max-md:ml-5 max-sm:mx-5 max-md:mr-5 max-md:ml-10 hover:scale-105 transition-transform duration-300 `}>
         <div className="box-border flex relative flex-col shrink-0 mt-5 h-[57px]">
           <img
             loading="lazy"
@@ -31,36 +31,38 @@ const ServiceCard = ({ icon, title, description, learnMoreLink, delay, expandedC
           />
         </div>
         <section
-        ref={contentRef}
-        style={{ height }}
-        className="box-border flex relative flex-col grow shrink-0 self-stretch px-10 py-5 mx-auto w-full max-w-[1200px] min-h-[100px] overflow-hidden transition-height duration-200"
-      >
-        <h3 className="box-border relative shrink-0 mx-auto mt-5 mb-2.5 h-auto font-extrabold text-xl text-[#282828]">
-          {title}
-        </h3>
-        <div className="relative">
-          <p className="box-border relative shrink-0 mx-auto h-auto text-center text-zinc-500">
-            {expandedCard === title ? (
-              description
-            ) : (
-              getFirstSentence(typeof description === 'string' ? description : description.props.children.join(' '))
+          ref={contentRef}
+          style={{ height: expandedCard === title ? 'auto' : height }}
+          className={`box-border flex relative flex-col grow shrink-0 self-stretch px-10 py-5 mx-auto w-full max-w-[1200px] min-h-[100px] overflow-hidden transition-height duration-200 ${
+            expandedCard === title ? 'max-h-screen' : 'max-h-[150px]'
+          }`}
+        >
+          <h3 className="box-border relative shrink-0 mx-auto mt-5 mb-2.5 h-auto font-extrabold text-xl text-[#282828]">
+            {title}
+          </h3>
+          <div className="relative">
+            <p className="box-border relative shrink-0 mx-auto h-auto text-center text-zinc-500">
+              {expandedCard === title ? (
+                description
+              ) : (
+                getFirstSentence(typeof description === 'string' ? description : description.props.children.join(' '))
+              )}
+            </p>
+            {expandedCard !== title && (
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white to-white opacity-65"></div>
             )}
-          </p>
-          {expandedCard !== title && (
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white to-white opacity-65"></div>
-          )}
-        </div>
-      </section>
-      <a
-        href={learnMoreLink}
-        onClick={(e) => {
-          e.preventDefault();
-          setExpandedCard(expandedCard === title ? null : title);
-        }}
-        className="box-border relative shrink-0 mx-auto mt-5 h-auto font-semibold underline text-[#5BA3BB] hover:text-[#057BA2] hover:scale-105 transition-transform duration-100"
-      >
-        {expandedCard === title ? 'Read Less' : 'Learn More'}
-      </a>
+          </div>
+        </section>
+        <a
+          href={learnMoreLink}
+          onClick={(e) => {
+            e.preventDefault();
+            setExpandedCard(expandedCard === title ? null : title);
+          }}
+          className="box-border relative shrink-0 mx-auto mt-5 h-auto font-semibold underline text-[#5BA3BB] hover:text-[#057BA2] hover:scale-105 transition-transform duration-100"
+        >
+          {expandedCard === title ? 'Read Less' : 'Learn More'}
+        </a>
       </div>
     );
   };
@@ -145,9 +147,7 @@ export function ServicePage() {
 
   return (
     <div className="flex flex-col pt-7 bg-[#edf8fc]">
-      <div
-        className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]"
-      >
+      <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]">
         <section className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px]">
           <div className="box-border flex relative flex-col shrink-0 mt-5 h-auto">
             <h2 className="box-border relative shrink-0 mx-auto mt-5 h-auto text-7xl font-extrabold text-center text-zinc-800 opacity-0 animate-fade-in animation-delay-1">
@@ -171,7 +171,7 @@ export function ServicePage() {
         <div className="box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto">
           <div className="box-border flex relative flex-col shrink-0 mt-5 bg-center bg-cover bg-[url(https://cdn.builder.io/api/v1/image/assets/TEMP/59c731ff3ec0ed08f28a50812e69ce7f4a895bedd99ce9beae712e0f59f282d9?apiKey=ea3aca9057654e45a61207978509cdea&)] min-h-screen min-w-screen">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
-              <div className="flex flex-col w-6/12 ml-[200px] max-md:ml-0 max-md:w-full ">
+              <div className="flex flex-col w-6/12 ml-[200px] max-md:ml-0 max-md:w-full">
                 {services.slice(0, 3).map((service, index) => (
                   <ServiceCard
                     key={service.title}
