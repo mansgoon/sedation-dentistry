@@ -166,7 +166,7 @@ export function MyComponent() {
         <section className="py-2.5 mt-5 max-md:flex max-md:flex-col max-md:max-w-full max-sm:flex max-sm:flex-col">
           <div className="flex gap-5 max-md:flex-col max-md:gap-0">
             <div className="flex flex-col w-[41%] max-md:ml-0 max-md:w-full">
-              <h1 className="min-h-[340px] self-stretch my-auto text-8xl font-bold tracking-tighter text-[#282828] max-md:mt-10 max-md:max-w-full max-md:text-center max-md:text-6xl max-sm:pr-5 max-sm:-mt-0.5 max-sm:text-8xl max-sm:tracking-tighter max-sm:text-center">
+              <h1 className="min-h-[340px] self-stretch my-auto text-8xl font-bold tracking-tighter text-[#282828] max-md:mt-10 max-md:max-w-full max-md:text-center max-md:text-6xl max-sm:pr-5 max-sm:-mt-0.5 max-sm:text-8xl max-sm:tracking-tighter max-sm:text-center ">
                 {renderText()}
               </h1>
             </div>
@@ -194,12 +194,12 @@ export function MyComponent() {
               />
             </div>
             <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full animate-slide-up scroll-trigger">
-              <h2 className="self-start my-auto mr-10 ml-5 text-6xl font-bold tracking-tight text-[#282828] max-md:mr-2.5 max-md:mt-10 max-md:max-w-full max-md:text-center max-sm:my-auto max-sm:ml-auto max-sm:text-center ">
-                Expert dental care for the whole family.
+              <h2 className="self-start my-auto mr-10 ml-5 text-6xl font-bold tracking-tight text-[#282828] max-md:mr-2.5 max-md:mt-10 max-md:mb-10 max-md:max-w-full max-md:text-center max-sm:my-auto max-sm:ml-auto max-sm:text-center max-sm:text-5xl max-sm:mb-5 text-balanced">
+              Relaxed dental visits with expert <span className="underline decoration-[#5BA3BB] decoration-dashed underline-offset-8">sedation care.</span>
               </h2>
               <p className="self-end mr-10 mb-auto text-lg ml-5 leading-9 text-zinc-400 max-md:pt-4 max-md:mt-0 max-md:mr-2.5 max-md:max-w-full max-md:text-center max-sm:my-auto max-sm:ml-auto max-sm:text-center">
                 <span className="text-base not-italic text-neutral-500">
-                  Awake or Asleep Dentistry has been providing sedation dentistry in Mississauga for over 15 years. We offer several different sedation options for your comfort, ranging from light conscious sedation, deep conscious sedation, to fully asleep. Although our office specializes in sedation, we also provide treatments without sedation as well. Dentistry services are available for the entire family, including adults, teens, and children 2+. Call, or schedule a consultation to discuss your options, or click on the links below for more information.
+                  Awake or Asleep Dentistry has been providing sedation dentistry in Mississauga for over 20 years. We offer several different sedation options for your comfort, ranging from light conscious sedation, deep conscious sedation, to fully asleep. Although our office specializes in sedation, we also provide treatments without sedation. Dentistry services are available for the entire family, including adults, teens, and children 2+. Call, or schedule a consultation to discuss your options, or click on the links below for more information.
                 </span>
               </p>
               <div className="flex justify-between items-center mt-20 ml-5 max-md:justify-center">
@@ -222,7 +222,7 @@ export function MyComponent() {
         <div className="mt-14 mb-5 max-md:mt-10 max-md:max-w-full">
           <div className="flex gap-5 max-md:flex-col max-md:gap-0">
             <div className="flex flex-col w-[31%] max-md:ml-5 max-md:w-full animate-fade-in scroll-trigger">
-              <h2 className="self-stretch my-auto text-6xl font-bold tracking-tighter text-[#282828] max-md:my-auto max-md:max-w-full max-md:text-4xl max-md:text-center  max-sm:tracking-tighter max-sm:text-center">
+              <h2 className="self-stretch my-auto text-6xl font-bold tracking-tighter text-[#282828] max-md:my-auto max-md:max-w-full max-md:text-5xl max-md:text-center  max-sm:tracking-tighter max-sm:text-center">
                 Everything you need in one place.
               </h2>
             </div>
@@ -283,7 +283,7 @@ export function MyComponent() {
             />
           </div>
           <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full animate-slide-up scroll-trigger">
-            <h2 className="pt-16 mt-auto mr-10 mb-5 ml-5 text-6xl font-bold tracking-tighter text-[#282828] max-md:max-w-full max-md:text-4xl max-md:text-center max-sm:text-center">
+            <h2 className="pt-16 mt-auto mr-10 mb-5 ml-5 text-6xl font-bold tracking-tighter text-[#282828] max-md:max-w-full max-md:text-5xl max-md:text-center max-sm:text-center">
               Professionals you can trust. Period.
             </h2>
             <p className="mt-5 mr-10 mb-auto ml-5 text-lg leading-9 text-zinc-400 max-md:max-w-full max-md:text-center">

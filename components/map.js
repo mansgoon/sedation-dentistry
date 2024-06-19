@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
@@ -17,31 +17,12 @@ const center = {
 };
 
 export function Map() {
-  const [mapLoaded, setMapLoaded] = useState(false);
   const [isInfoWindowOpen, setIsInfoWindowOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScriptLoad = () => {
-      setMapLoaded(true);
-    };
-
-    const loadGoogleMapsScript = () => {
-      if (typeof google === 'object' && typeof google.maps === 'object') {
-        // Google Maps script is already loaded
-        setMapLoaded(true);
-      } else {
-        // Add the script to load Google Maps
-        const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAiYY_rGwhGOP2g0l9NP9AnZTp9ShVRtgg`;
-        script.async = true;
-        script.defer = true;
-        script.onload = handleScriptLoad;
-        document.head.appendChild(script);
-      }
-    };
-
-    loadGoogleMapsScript();
-  }, []);
+  const { isLoaded, loadError } = useJsApiLoader({
+    googleMapsApiKey: 'AIzaSyAiYY_rGwhGOP2g0l9NP9AnZTp9ShVRtgg',
+    libraries: ['places'],
+  });
 
   const handleMarkerClick = () => {
     setIsInfoWindowOpen(true);
@@ -51,9 +32,13 @@ export function Map() {
     setIsInfoWindowOpen(false);
   };
 
+  if (loadError) {
+    return <div>Error loading maps</div>;
+  }
+
   return (
     <>
-      {mapLoaded ? (
+      {isLoaded ? (
         <div className="box-border aspect-[1.42] min-h-[20px] min-w-[20px] animate-fade-in animation-delay-1">
           <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={17}>
             <Marker position={center} onClick={handleMarkerClick} />
@@ -69,7 +54,6 @@ export function Map() {
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ color: 'blue' }}
-                      
                     >
                       View on Google Maps
                     </a>

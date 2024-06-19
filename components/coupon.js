@@ -1,8 +1,10 @@
 'use client'
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import CouponCircle from './CouponCircle'; // Import the new component
+import { faEnvelope, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import CouponCircle from './CouponCircle'; 
+import emailjs from 'emailjs-com';
+
 
 function FormInput({ type, placeholder, name, className, required }) {
     return (
@@ -26,6 +28,7 @@ function FormInput({ type, placeholder, name, className, required }) {
 export function Coupon() {
     const [isVisible, setIsVisible] = useState(false);
     const [isCircleVisible, setIsCircleVisible] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const hasSeenCoupon = localStorage.getItem('hasSeenCoupon');
@@ -48,9 +51,36 @@ export function Coupon() {
     };
 
     const handleSubmit = (event) => {
-        event.preventDefault();
-        // form submission logic here
-        console.log('Form submitted');
+      event.preventDefault();
+      setLoading(true);
+    
+      // Get the email input value
+      const email = event.target.elements['email-popup'].value;
+    
+      // EmailJS configuration
+      const serviceID = 'service_mcmzjiq';
+      const templateID = 'template_8qsfeyn';
+      const userID = 'hZQClQ56Ff1XYUW3H';
+    
+      // EmailJS template parameters
+      const templateParams = {
+        to_email: email,
+      };
+    
+      // Send the email using EmailJS
+      emailjs.send(serviceID, templateID, templateParams, userID)
+        .then((response) => {
+          console.log('Email sent successfully!', response.status, response.text);
+          // Optionally, you can show a success message to the user
+          handleClose();
+        })
+        .catch((error) => {
+          console.error('Error sending email:', error);
+          // Optionally, you can show an error message to the user
+        })
+        .finally(() => {
+          setLoading(false);
+        });
     };
 
     return (
@@ -59,7 +89,7 @@ export function Coupon() {
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
                     <div className="box-border flex flex-col p-10 mx-auto rounded-lg bg-white max-w-[900px] min-h-[100px] relative ml-5 mr-5 max-md:m-20 max-sm:m-5">
                         <button
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 cursor-pointer hover:scale-105 transition-transform duration-100"
+                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 cursor-pointer hover:scale-105 close-button transition-transform duration-100"
                             onClick={handleClose}
                             aria-label="Close"
                         >
@@ -78,7 +108,7 @@ export function Coupon() {
                                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                                     <div className="flex flex-col justify-center w-6/12 max-md:ml-0 max-md:w-full">
                                         <h2 className="box-border relative shrink-0 mt-5 h-auto text-4xl max-sm:text-3xl font-bold max-md:mx-auto text-[#282828]">
-                                            Claim Your <span className="text-[#5BA3BB]">$100</span><br />Discount Today!
+                                            Claim your <span className="text-[#5BA3BB]">$100</span><br />Discount today!
                                         </h2>
                                         <p className="box-border relative shrink-0 mt-5 h-auto max-md:mx-auto text-neutral-500 max-sm:text-center">Enter your email to receive the coupon.</p>
                                         <form onSubmit={handleSubmit}>
@@ -87,9 +117,10 @@ export function Coupon() {
                                             <div className="box-border flex relative flex-row shrink-0 gap-8 mt-5">
                                                 <button
                                                     type="submit"
-                                                    className="box-border relative shrink-0 px-6 py-4 mr-4 text-xs text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-[white] font-bold max-md:mx-auto  max-sm:mx-auto hover:bg-[#057BA2] hover:scale-105 transition-transform duration-100 max-md:w-full max-sm:w-full"
+                                                    className="box-border relative shrink-0 px-6 py-4 mr-4 text-xs text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-[white] font-bold max-md:mx-auto  max-sm:mx-auto hover:bg-[#057BA2] hover:scale-105 transition-transform duration-100 max-md:w-full max-sm:w-full flex items-center justify-center"
                                                 >
                                                     Submit
+                                                    {loading && <FontAwesomeIcon icon={faSpinner} spin className="ml-2" />}
                                                 </button>
                                                 <button
                                                   type="button"

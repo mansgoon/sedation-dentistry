@@ -1,13 +1,15 @@
 'use client'
 import React from "react";
 
-const FooterSection = ({ title, items }) => (
+const FooterSection = ({ title, items, links }) => (
   <div className="flex flex-col mt-1 max-sm:mx-auto max-sm:text-center">
     <div className="text-xl tracking-wider text-white">{title}</div>
     <div className="mt-9 text-lg tracking-widest leading-9 text-zinc-400">
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          {item}
+          <a href={links[index]} className="hover:underline">
+            {item}
+          </a>
           <br />
         </React.Fragment>
       ))}
@@ -19,10 +21,12 @@ const footerSections = [
   {
     title: "Patient Information",
     items: ["About Us", "History", "Before / Afters", "Contact Us"],
+    links: ["/about", "/history", "/before-afters", "/contact"],
   },
   {
     title: "Services",
     items: ["Preventive Care", "Implant Dentistry", "Cosmetic Dentistry", "Sedation Dentistry"],
+    links: ["/services", "/services", "/services", "/services"], // All services links go to /services
   },
 ];
 
@@ -34,7 +38,7 @@ export const Footer = () => {
       ))}
       <div className="flex flex-col mt-1 max-sm:mx-auto max-sm:text-center">
         <a href="/contact">
-        <div className="text-xl tracking-wider text-white">Contact us</div>
+          <div className="text-xl tracking-wider text-white">Contact us</div>
         </a>
         <div className="mt-9 text-lg tracking-widest leading-7 text-zinc-400">
           325 Central Parkway West
@@ -57,9 +61,9 @@ export const Footer = () => {
             />
           </div>
           <div className="text-lg tracking-widest leading-9 text-zinc-400">
-            905-277-2641
+            <a href="tel:905-277-2641" className="hover:underline">905-277-2641</a>
             <br />
-            info@awakeorasleep.com
+            <a href="mailto:info@awakeorasleep.com" className="hover:underline">info@awakeorasleep.com</a>
           </div>
         </div>
       </div>

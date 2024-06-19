@@ -24,14 +24,14 @@ function ContactSection() {
         className="aspect-[33.33] fill-slate-400 w-[400px] mx-auto max-sm:w-[240px]"
       />
       <p className="box-border relative shrink-0 mx-auto mt-5 h-auto font-light text-zinc-400 max-sm:mx-auto max-sm:text-sm max-sm:text-center">
-        Request a consultation to treat your teeth right now.
+        Fill out the following forms before your first appointment
       </p>
       <div className="flex justify-center space-x-4 mt-8">
         <a
           href="https://sedationdentistry.ca/wp-content/uploads/2014/05/medhistoryform.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-48 px-6 py-3 border border-[#5BA3BB] rounded-lg text-[#5BA3BB] hover:bg-[#5BA3BB] hover:text-white transition-colors hover:scale-105 transition-transform duration-200"
+          className="flex items-center justify-center w-48 px-6 py-3 border-2 border-[#5BA3BB] rounded-lg text-[#5BA3BB] hover:bg-[#5BA3BB] hover:text-white transition-colors hover:scale-105 transition-transform duration-200 button-border-gradient"
         >
           <FontAwesomeIcon icon={faFileMedical} className="mr-2" />
           <span className="text-center">Patient History</span>
@@ -40,7 +40,7 @@ function ContactSection() {
           href="https://sedationdentistry.ca/wp-content/uploads/2020/07/20191118-SurgiServices-AnaesQuestionnaire-2019_fill-v2_new.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-48 px-6 py-3 border border-[#5BA3BB] rounded-lg text-[#5BA3BB] hover:bg-[#5BA3BB] hover:text-white transition-colors hover:scale-105 transition-transform duration-200"
+          className="flex items-center justify-center w-48 px-6 py-3 border-2 border-[#5BA3BB] rounded-lg text-[#5BA3BB] hover:bg-[#5BA3BB] hover:text-white transition-colors hover:scale-105 transition-transform duration-200 border-gradient"
         >
           <FontAwesomeIcon icon={faMaskVentilator} className="mr-2" />
           <span className="text-center">GA Form</span>
@@ -191,7 +191,7 @@ function ContactForm() {
 
     return (
       <form onSubmit={handleSubmit}>
-      <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-3">
+      <div className="box-border flex relative flex-col shrink-0 pb-8 ml-52 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-3">
         <div className="flex gap-5 max-sm:flex-col max-md:gap-0">
           <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
             <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 mt-5 h-auto">
@@ -345,9 +345,14 @@ function ContactForm() {
         <div className="box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto">
           <div className="box-border flex relative flex-col shrink-0 mt-5">
             <div className="flex gap-5 max-md:flex-col max-md:gap-0">
+              <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+                <div className="box-border flex relative flex-col shrink-0 pb-8 mb-auto h-auto">
+                  <ContactForm />
+                </div>
+              </div>
               <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                 <div className="box-border flex relative flex-col shrink-0 pb-8 mb-auto h-auto">
-                  <div className="box-border flex relative flex-col shrink-0 pb-8 ml-52 h-auto max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-1">
+                  <div className="box-border flex relative flex-col shrink-0 pb-8 mr-52 h-auto max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-1">
                     <Map />
                     <a href="https://www.google.com/maps/place/Awake+Or+Asleep/@43.5833335,-79.6422659,16z/data=!3m2!4b1!5s0x882b46d757741dad:0xe63706c22d40dff8!4m6!3m5!1s0x882b46d989280177:0xa38f38e830f9d97d!8m2!3d43.5833296!4d-79.639691!16s%2Fg%2F1tf6bp9y?hl=en-US&entry=ttu" target="_blank" rel="noopener noreferrer">
                       <div className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg min-h-[125px] opacity-[1] border-2 bg-white flex items-center">
@@ -418,11 +423,7 @@ function ContactForm() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-                <div className="box-border flex relative flex-col shrink-0 pb-8 mb-auto h-auto">
-                  <ContactForm />
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

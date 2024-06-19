@@ -83,11 +83,12 @@ const services = [
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/43041c4f8f1663181981448c51d224d6eefc5808bdf3b2c8bc5ef8360292f7b4?apiKey=ea3aca9057654e45a61207978509cdea&",
-    title: "Test",
+    title: "Restorative Care",
     description: (
       <>
-        Regular checkups and cleanings every six months are essential for maintaining healthy teeth and gums. Poor oral hygiene can lead to serious consequences, especially in children. During a checkup, the dentist examines for signs of problems, including decay and oral cancer. Dental cleaning removes plaque, tartar and polishes teeth. Additional preventative measures include brushing and flossing regularly, using fluoride, eating a balanced diet, orthodontics, sealants, and avoiding smoking to prevent future dental problems.&nbsp;
-        <br />
+        Restorative dental care is crucial for maintaining healthy teeth and a beautiful smile. Our practice offers a range of restorative services, including dental crowns, dentures, and fillings, to help our patients achieve optimal oral health. We use the latest techniques and high-quality materials to ensure our patients receive the best possible care.<br />
+        <br />Dental crowns are an excellent option for patients with decayed or damaged teeth. Porcelain crowns are often recommended for front teeth because they blend more naturally with existing teeth and provide good strength and resilience. Crowns may be necessary for reinforcing cracked teeth, restoring worn-down teeth, supporting large fillings, or improving the appearance of stained or misshapen teeth.<br/>
+        <br />Dentures offer a reliable solution for patients missing some or all of their natural teeth. Partial dentures are used when some natural teeth remain, while complete dentures replace all teeth. Our team can create custom dentures that blend with existing teeth or complement skin, hair, and eye color. Dentures improve appearance, speech, and facial muscle support. We also offer white fillings, which are often preferred over silver fillings for their aesthetic benefits and ability to strengthen restored teeth. We prioritize patient comfort and offer various sedation options, including conscious sedation and general anesthesia, to help ensure comfort during restorative procedures.<br />&nbsp;
       </>
     ),
     learnMoreLink: "#",
