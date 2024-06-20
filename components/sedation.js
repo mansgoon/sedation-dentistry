@@ -173,7 +173,7 @@ const sedationOptions = [
         </div>
         <span className="font-bold text-center text-[#282828] mt-5 mb-2">Dental Phobia</span><br />
         <br />
-        It is common for children to be fearful of the dentist. This fear may have resulted from their own traumatic experience, fear of pain, or being intimidated by needles and tools often found in the office. All of these things can cause children great anxiety and lead to them to refuse to attend their check-ups. Parents don’t know what to do because they don’t want to have to force or restrain their children, but they don’t want to neglect their dental care either. Sedation dentistry solves the problem.<br />
+        It is common for children to be fearful of the dentist. This fear may have resulted from their own traumatic experience, fear of pain, or being intimidated by needles and tools often found in the office. All of these things can cause children great anxiety and lead to them to refuse to attend their check-ups. Parents don&apos;t know what to do because they don&apos;t want to have to force or restrain their children, but they don&apos;t want to neglect their dental care either. Sedation dentistry solves the problem.<br />
         <br />
         <span className="font-bold text-center text-[#282828] mt-5 mb-2">General Anesthesia Safety</span><br />
         <br />
@@ -211,10 +211,10 @@ const sedationOptions = [
         <span className="font-bold text-center text-[#282828] mt-5 mb-2">IV Sedation Dentistry</span>
         <br />
         <br />
-        IV sedation dentistry is a type of sedation where a sedative medication is administered intravenously, causing the patient to feel very relaxed, safe, and comfortable. The effects are often referred to as "twilight sleep," where the patient is not fully asleep but will not feel or remember any discomfort. IV sedation works quickly and helps tone out sensory perceptions like sight, sound, and smell, making it easier for the dentist to achieve the best results. It is especially effective for patients with extreme or high gag reflex.
+        IV sedation dentistry is a type of sedation where a sedative medication is administered intravenously, causing the patient to feel very relaxed, safe, and comfortable. The effects are often referred to as &quot;twilight sleep,&quot; where the patient is not fully asleep but will not feel or remember any discomfort. IV sedation works quickly and helps tone out sensory perceptions like sight, sound, and smell, making it easier for the dentist to achieve the best results. It is especially effective for patients with extreme or high gag reflex.
         <br />
         <br />
-        Before scheduling an IV sedation appointment, a consultation is arranged to check the patient's medical history, medications, and address any concerns or questions. Prior to the appointment, vital signs such as blood pressure, oxygen level, and pulse are checked to ensure safety and efficiency. During the session, the patient's vital signs and medication level are monitored. After the dental work is completed, the patient will need a ride home with a friend or relative.
+        Before scheduling an IV sedation appointment, a consultation is arranged to check the patient&apos;s medical history, medications, and address any concerns or questions. Prior to the appointment, vital signs such as blood pressure, oxygen level, and pulse are checked to ensure safety and efficiency. During the session, the patient&apos;s vital signs and medication level are monitored. After the dental work is completed, the patient will need a ride home with a friend or relative.
         <br />
         <br />
         Patients considering IV sedation may also want to consider general anesthesia (fully unconscious sedation) and should <a href="/contact" className="underline text-[#057BA2]">schedule a consultation</a> to discuss their options.

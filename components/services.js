@@ -89,7 +89,7 @@ const services = [
     title: "Preventative Care",
     description: (
       <>
-        Regular dental checkups and cleanings every 6 months are crucial for maintaining healthy teeth and gums. Between appointments, consistent brushing and flossing is essential. Professional cleanings remove plaque and tartar that can't be eliminated through regular oral hygiene. During checkups, dentists examine for issues like tooth decay, gum disease, and oral cancer, allowing for early detection and treatment.<br />
+        Regular dental checkups and cleanings every 6 months are crucial for maintaining healthy teeth and gums. Between appointments, consistent brushing and flossing is essential. Professional cleanings remove plaque and tartar that can&apos;t be eliminated through regular oral hygiene. During checkups, dentists examine for issues like tooth decay, gum disease, and oral cancer, allowing for early detection and treatment.<br />
         <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">What Happens During a Checkup & Cleaning?</span><br />
         <br />During a checkup, the dentist will perform a thorough examination to look for any signs of problems, including taking x-rays, checking for tooth decay, and examining tissues inside the mouth. Early detection of dental problems usually makes solving them easier and can even save your life if serious issues like oral cancer are discovered. Without regular checkups, you may not be aware of dental problems until they cause significant damage.<br />
         <br />The dental cleaning is part of your front line of defense against gum disease and tooth decay. During your appointment, the hygienist:&nbsp;
@@ -112,7 +112,7 @@ const services = [
               </li>
           </ul>
         <br />
-        The hygienist can get rid of plaque and stains that you can't eliminate with regular flossing and brushing.
+        The hygienist can get rid of plaque and stains that you can&apos;t eliminate with regular flossing and brushing.
       </>
     ),
     learnMoreLink: "#",
@@ -136,7 +136,7 @@ const services = [
     title: "Dentures",
     description: (
       <>
-        Modern advances have made dentures more comfortable, attractive, and functional than ever before. If you've lost your natural teeth, dentures provide several benefits:<br />
+        Modern advances have made dentures more comfortable, attractive, and functional than ever before. If you&apos;ve lost your natural teeth, dentures provide several benefits:<br />
         <ul className="list-none mt-5">
               <li className="flex items-center mb-2">
               <span className="text-[#5BA3BB] mr-2">&#10142;</span>
@@ -144,7 +144,7 @@ const services = [
               </li>
               <li className="flex items-center mb-2">
               <span className="text-[#5BA3BB] mr-2">&#10142;</span>
-              With partial dentures, your appearance doesn't have to change much because they can be made to match your existing teeth.
+              With partial dentures, your appearance doesn&apos;t have to change much because they can be made to match your existing teeth.
               </li>
               <li className="flex items-center mb-2">
               <span className="text-[#5BA3BB] mr-2">&#10142;</span>
@@ -173,7 +173,7 @@ const services = [
     title: "Fillings & Root Canals",
     description: (
       <>
-        Dental fillings, including composite or "white fillings", are often preferred over silver fillings due to their aesthetic benefits and ability to more closely match existing teeth. White fillings also require less removal of natural tooth structure, provide a tighter seal, and can result in a stronger restored tooth with less chance of future fracturing compared to silver fillings. Cavity fillings should be treated as soon as possible, with the ideal time for pregnant women being during the 1st and 2nd trimesters to avoid difficulty lying on one's back for extended periods in the 3rd trimester.<br />
+        Dental fillings, including composite or &quot;white fillings&quot;, are often preferred over silver fillings due to their aesthetic benefits and ability to more closely match existing teeth. White fillings also require less removal of natural tooth structure, provide a tighter seal, and can result in a stronger restored tooth with less chance of future fracturing compared to silver fillings. Cavity fillings should be treated as soon as possible, with the ideal time for pregnant women being during the 1st and 2nd trimesters to avoid difficulty lying on one&apos;s back for extended periods in the 3rd trimester.<br />
         <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Root Canal Procedures</span><br />
         <br />Root canal procedures are necessary when the nerve of a tooth becomes infected or the pulp is damaged, in order to remove the infected nerve and pulp. Common signs and symptoms include pain when chewing, prolonged sensitivity to hot or cold, darkening of the tooth, tenderness or swelling in nearby gums, or a recurring pimple on the gums. However, it is possible to have an infection without any symptoms, making regular dental checkups important. Modern technology and anesthetics have made root canals no more painful than getting a cavity filled.<br />
         <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Root Canal Treatment Process</span><br />
@@ -209,7 +209,7 @@ const services = [
               </li>
               <li className="flex items-center mb-2">
               <span className="text-[#5BA3BB] mr-2">&#10142;</span>
-              Your tooth needs extra support because it has a large filling and there isn't a lot of natural tooth left
+              Your tooth needs extra support because it has a large filling and there isn&apos;t a lot of natural tooth left
               </li>
               <li className="flex items-center mb-2">
               <span className="text-[#5BA3BB] mr-2">&#10142;</span>
@@ -260,7 +260,7 @@ const services = [
         <br />Several factors determine the right technique for you, primarily the condition of the natural tooth. Crowns involve removing a larger portion of the natural tooth, while porcelain veneers require removing only a small amount, and bonding usually involves no removal of the natural tooth. If bonding or porcelain veneers can achieve the desired results, they are often preferred over crowns because they preserve more of the natural tooth. However, crowns may be the better option for severely damaged teeth. A personal consultation and dental exam will help determine the best choice for your situation.<br />
         <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Zoom Teeth Whitening</span><br />
         <br />Zoom whitening is very effective, often producing dramatic results in a short period compared to take-home trays, which take longer and usually do not achieve the same level of whiteness. This makes Zoom ideal for those who lack the time or patience for the tray method and want the best results possible. If you are serious about whitening your teeth, Zoom can provide the desired outcome. Schedule an appointment today to experience the benefits.<br />&nbsp;
-        <br />Whiter teeth can also make you look younger. A British study showed that people perceived a model with digitally whitened teeth to be 13 years younger than when the same model's teeth appeared yellow. Zoom whitening can achieve this transformation in an <span className="underline font-semibold">hour or less</span>, offering a quick and easy way to look and feel younger.
+        <br />Whiter teeth can also make you look younger. A British study showed that people perceived a model with digitally whitened teeth to be 13 years younger than when the same model&apos;s teeth appeared yellow. Zoom whitening can achieve this transformation in an <span className="underline font-semibold">hour or less</span>, offering a quick and easy way to look and feel younger.
       </>
     ),
     learnMoreLink: "#",
