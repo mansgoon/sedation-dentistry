@@ -46,7 +46,19 @@ const services = [
 export function MyComponent() {
   const [displayText, setDisplayText] = useState("");
   const [caretVisible, setCaretVisible] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(true);
   const typewriterText = " beautiful, white smile.";
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1756);
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     let currentIndex = 0;
@@ -111,8 +123,6 @@ export function MyComponent() {
     };
   }, []);
 
-
-  // turns "white" into blue color
   const getColoredText = (text) => {
     const parts = text.split(" ");
     return parts.map((part, index) => {
@@ -134,11 +144,8 @@ export function MyComponent() {
     });
   };
 
-
-  // Conditional rendering for type writer code based on screen size (FIX: glitchy on smaller screens)
-
   const renderText = () => {
-    if (window.innerWidth >= 1756) {
+    if (isDesktop) {
       // Desktop
       return (
         <>
@@ -149,7 +156,6 @@ export function MyComponent() {
           </span>
         </>
       );
-
     } else {
       // Tablet and Mobile
       return (
