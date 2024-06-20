@@ -33,6 +33,7 @@ function NavigationLink({ children, href, onClick }) {
 }
 
 function NavigationMenu({ isMobile, onLinkClick }) {
+  const pathname = usePathname();
   const navigationItems = [
     { label: "HOME", href: "/" },
     { label: "SEDATION", href: "/sedation" },
@@ -64,10 +65,13 @@ function NavigationMenu({ isMobile, onLinkClick }) {
   );
 }
 
-export function AppointmentButton() {
+export function AppointmentButton({ onClick }) {
   return (
     <Link href="/contact" passHref>
-      <button className="box-border relative shrink-0 px-6 md:mr-5 max-md:ml-5 max-md:mb-52 max-md:mt-5 pt-4 pb-4 text-xs tracking-wide text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-[white] hover:bg-[#057BA2] hover:scale-105 transition-all duration-100 transform">
+      <button
+        className="box-border relative shrink-0 px-6 md:mr-5 max-md:ml-5 max-md:mb-52 max-md:mt-5 pt-4 pb-4 text-xs tracking-wide text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-[white] hover:bg-[#057BA2] hover:scale-105 transition-all duration-100 transform"
+        onClick={onClick}
+      >
         REQUEST APPOINTMENT
       </button>
     </Link>
@@ -79,6 +83,7 @@ function Header() {
   const [lastScrollY, setLastScrollY] = React.useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
   const [isMenuToggled, setIsMenuToggled] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
 
   const handleMobileMenuToggle = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -91,24 +96,36 @@ function Header() {
   };
 
   React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const handleScroll = () => {
+      if (isMobile) return; // Don't apply scroll effect on mobile
+
       const currentScrollY = window.scrollY;
-      if (!isMobileMenuOpen) {
+      if (!isMobileMenuOpen && currentScrollY !== 0) {
         setIsVisible(currentScrollY < lastScrollY);
         setLastScrollY(currentScrollY);
+      } else {
+        setIsVisible(true);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('resize', checkMobile);
     };
-  }, [lastScrollY, isMobileMenuOpen]);
+  }, [lastScrollY, isMobileMenuOpen, isMobile]);
 
   return (
     <header
       className={`flex gap-5 justify-between items-center self-center w-full py-4 font-bold bg-white max-w-full sticky top-0 z-10 transition-transform duration-300 ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
+        isVisible || isMobile ? "translate-y-0" : "-translate-y-full"
       }`}
       style={{ boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}
     >
@@ -120,9 +137,20 @@ function Header() {
           </div>
         </div>
       </Link>
+      {/* <Link href="/" passHref>
+        <div className="flex gap-2.5 text-2xl tracking-wide text-[#282828] hover:scale-105 transition-transform duration-300">
+          <Logo />
+          <div className="flex-auto my-auto text-[#282828] hidden sm:block">
+            Awake or<span className="text-[#688DAC]"> Asleep</span> Dentistry
+          </div>
+          <div className="flex-auto my-auto text-[#282828] sm:hidden">
+            Awake <span className="text-[#688DAC]"> or</span> Asleep
+          </div>
+        </div>
+      </Link> */}
       <div className="hidden md:flex gap-5 justify-between max-md:flex-wrap max-md:max-w-full">
         <NavigationMenu isMobile={false} onLinkClick={handleLinkClick} />
-        <AppointmentButton />
+        <AppointmentButton onClick={handleLinkClick} />
       </div>
       <div className="md:hidden">
         <button
@@ -182,7 +210,7 @@ function Header() {
         <div className="px-4 flex flex-col justify-center h-full">
           <NavigationMenu isMobile={true} onLinkClick={handleLinkClick} />
           <div className="mt-4">
-            <AppointmentButton />
+            <AppointmentButton onClick={handleLinkClick} />
           </div>
         </div>
       </div>

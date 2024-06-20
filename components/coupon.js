@@ -86,10 +86,10 @@ export function Coupon() {
     return (
         <>
             {isVisible && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="box-border flex flex-col p-10 mx-auto rounded-lg bg-white max-w-[900px] min-h-[100px] relative ml-5 mr-5 max-md:m-20 max-sm:m-5">
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4 sm:p-0">
+                    <div className="box-border flex flex-col p-6 sm:p-10 mx-auto rounded-lg bg-white max-w-[900px] w-full relative overflow-y-auto max-h-[90vh] sm:max-h-none">
                         <button
-                            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 cursor-pointer hover:scale-105 close-button transition-transform duration-100"
+                            className="absolute top-2 right-2 sm:top-4 sm:right-4 text-gray-500 hover:text-gray-700 cursor-pointer hover:scale-105 close-button transition-transform duration-100"
                             onClick={handleClose}
                             aria-label="Close"
                         >
@@ -103,11 +103,11 @@ export function Coupon() {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
-                        <section className="box-border flex flex-col grow shrink-0 self-stretch p-10 w-full rounded-lg max-w-[1200px] min-h-[100px]">
+                        <section className="box-border flex flex-col grow shrink-0 self-stretch w-full rounded-lg max-w-[1200px]">
                             <div className="box-border flex flex-col shrink-0 my-5">
                                 <div className="flex gap-5 max-md:flex-col max-md:gap-0">
                                     <div className="flex flex-col justify-center w-6/12 max-md:ml-0 max-md:w-full">
-                                        <h2 className="box-border relative shrink-0 mt-5 h-auto text-4xl max-sm:text-3xl font-bold max-md:mx-auto text-[#282828]">
+                                        <h2 className="box-border relative shrink-0 mt-5 h-auto text-4xl max-sm:text-3xl max-sm:text-center font-bold max-md:mx-auto text-[#282828]">
                                             Claim your <span className="text-[#5BA3BB]">$100</span><br />Discount today!
                                         </h2>
                                         <p className="box-border relative shrink-0 mt-5 h-auto max-md:mx-auto text-neutral-500 max-sm:text-center">Enter your email to receive the coupon.</p>

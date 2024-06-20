@@ -7,7 +7,12 @@ const ToastDemo = ({ open, onOpenChange, date }) => {
 
   return (
     <Toast.Provider swipeDirection="right">
-      <Toast.Root className="ToastRoot" open={open} onOpenChange={onOpenChange}>
+      <Toast.Root 
+        className="ToastRoot" 
+        open={open} 
+        onOpenChange={onOpenChange} 
+        duration={8000} // Duration in milliseconds (8000ms = 8 seconds)
+      >
         <Toast.Title className="ToastTitle">Consultation Requested</Toast.Title>
         <Toast.Description asChild>
           <p className="ToastDescription">

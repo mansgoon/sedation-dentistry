@@ -190,3 +190,59 @@ body {
 .transition-opacity {
   transition: opacity 0.3s ease-in-out;
 }
+
+
+.button--pulse {
+  position: relative;
+  overflow: hidden;
+}
+
+.button--pulse::before {
+  content: '';
+  position: absolute;
+  width: 110%;
+  height: 0;
+  padding-bottom: 110%;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 1);
+  transition: transform 0.4s, opacity 0.4s;
+}
+
+.button--pulse:hover::before {
+  transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+  opacity: 0;
+}
+
+.button {
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: bold;
+  color: white;
+  background: #5BA3BB;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.1s;
+}
+
+.button:hover {
+  background: #012c3a;
+  transform: scale(1.05);
+}
+
+.button:focus {
+  outline: none;
+}
+
+/* service card shadow override */
+.card-custom-shadow {
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(156, 163, 175, 0.5);
+}

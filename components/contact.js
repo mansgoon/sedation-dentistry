@@ -315,7 +315,7 @@ function ContactForm() {
           <div className="w-full flex justify-center">
             <button
               type="submit"
-              className="box-border relative shrink-0 px-6 py-4 mt-5 text-base font-bold text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-white hover:bg-[#057BA2] hover:scale-105 transition-all duration-100 transform flex items-center justify-center"
+              className="box-border relative shrink-0 px-6 py-4 mt-5 text-base font-bold text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-white hover:bg-[#057BA2] hover:scale-105 transition-all duration-100 transform flex items-center justify-center BUTTON button--pulse"
               style={{ width: '304px' }}
             >
               Submit
@@ -359,7 +359,7 @@ function ContactForm() {
                         <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                           <img
                             loading="lazy"
-                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/97161b38cead17a8fca63d577353b946ffb3229023176a79941ddd820fec9de0?apiKey=ea3aca9057654e45a61207978509cdea&"
+                            src="https://cdn.builder.io/api/v1/image/assets/TEMP/bb6685759ae1e371b58fac334772a9fe2c49e62d373f170a5870cf2425e3b208?apiKey=ea3aca9057654e45a61207978509cdea&"
                             className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
                           />
                         </div>
@@ -381,7 +381,7 @@ function ContactForm() {
                       <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                         <img
                           loading="lazy"
-                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/43041c4f8f1663181981448c51d224d6eefc5808bdf3b2c8bc5ef8360292f7b4?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/26c529405889196fd58804778c0a194ede1fea384fc2721c4a1357d11f74452b?apiKey=ea3aca9057654e45a61207978509cdea&"
                           className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
                         />
                       </div>
@@ -405,7 +405,7 @@ function ContactForm() {
                     <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                         <img
                           loading="lazy"
-                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/58f94d1b33acc78a68a70e2197f3f0ff1ffd096e089b0bef69f93e7d41b23225?apiKey=ea3aca9057654e45a61207978509cdea&"
+                          src="https://cdn.builder.io/api/v1/image/assets/TEMP/26309493603664f1d84eb267f41898ab813f246073cd4851ba3560b166b339f4?apiKey=ea3aca9057654e45a61207978509cdea&"
                           className="shrink-0 self-stretch aspect-square w-[53px] max-md:flex max-sm:flex"
                         />
                       </div>

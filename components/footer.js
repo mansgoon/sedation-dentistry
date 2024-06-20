@@ -20,8 +20,8 @@ const FooterSection = ({ title, items, links }) => (
 const footerSections = [
   {
     title: "Patient Information",
-    items: ["About Us", "History", "Before / Afters", "Contact Us"],
-    links: ["/about", "/history", "/before-afters", "/contact"],
+    items: ["About Us", "Download Forms", "Before / Afters", "Contact Us"],
+    links: ["/#about", "/contact", "/before-afters", "/contact"],
   },
   {
     title: "Services",

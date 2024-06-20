@@ -153,7 +153,7 @@ export function MyComponent() {
     } else {
       // Tablet and Mobile
       return (
-        <span className="leading-[113px]">
+        <span className="leading-[113px] max-sm:text-6xl">
           Treat yourself with a{getColoredText(typewriterText)}
         </span>
       );
@@ -173,7 +173,7 @@ export function MyComponent() {
             <div className="flex flex-col ml-5 w-[59%] max-md:ml-0 max-md:w-full">
               <img
                 loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/c8cf4061d6402e34049a3ed13168b977c879feeaf1b5f01128bcce7b8fc82c45?apiKey=ea3aca9057654e45a61207978509cdea&"
+                src="https://cdn.builder.io/api/v1/image/assets/TEMP/3f206fb339f39bd0524429db1be0a6748f70d6c3d269324227f7b38b8219aafd?apiKey=ea3aca9057654e45a61207978509cdea&"
                 alt="Smiling woman"
                 className="object-cover grow w-full aspect-[1.45] object-[bottom_right] max-md:flex max-md:mt-8 max-md:w-full max-sm:flex max-sm:w-full animate-float-in"
               />
@@ -194,10 +194,10 @@ export function MyComponent() {
               />
             </div>
             <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full animate-slide-up scroll-trigger">
-              <h2 className="self-start my-auto mr-10 ml-5 text-6xl font-bold tracking-tight text-[#282828] max-md:mr-2.5 max-md:mt-10 max-md:mb-10 max-md:max-w-full max-md:text-center max-sm:my-auto max-sm:ml-auto max-sm:text-center max-sm:text-5xl max-sm:mb-5 text-balanced">
+              <h2 className="self-start my-auto mr-10 ml-5 text-6xl font-bold tracking-tight text-[#282828] max-md:mr-2.5 max-md:mt-10 max-md:mb-10 max-md:max-w-full max-md:text-center max-sm:text-center max-sm:text-5xl max-sm:mb-5 text-balanced">
               Relaxed dental visits with expert <span className="underline decoration-[#5BA3BB] decoration-dashed underline-offset-8">sedation care.</span>
               </h2>
-              <p className="self-end mr-10 mb-auto text-lg ml-5 leading-9 text-zinc-400 max-md:pt-4 max-md:mt-0 max-md:mr-2.5 max-md:max-w-full max-md:text-center max-sm:my-auto max-sm:ml-auto max-sm:text-center">
+              <p className="self-end mr-10 mb-auto text-lg ml-5 leading-9 text-zinc-400 max-md:pt-4 max-md:mt-0 max-md:mr-2.5 max-md:max-w-full max-md:text-center  max-sm:text-center">
                 <span className="text-base not-italic text-neutral-500">
                   Awake or Asleep Dentistry has been providing sedation dentistry in Mississauga for over 20 years. We offer several different sedation options for your comfort, ranging from light conscious sedation, deep conscious sedation, to fully asleep. Although our office specializes in sedation, we also provide treatments without sedation. Dentistry services are available for the entire family, including adults, teens, and children 2+. Call, or schedule a consultation to discuss your options, or click on the links below for more information.
                 </span>
@@ -205,11 +205,11 @@ export function MyComponent() {
               <div className="flex justify-between items-center mt-20 ml-5 max-md:justify-center">
               <div className="flex items-center">
                 <Link href="/contact" passHref>
-                <button className="box-border relative shrink-0 px-6 py-4 mr-4 text-xs text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-[white] max-md:mx-auto max-md:mt-5 max-sm:mx-auto max-sm:mt-5 hover:bg-[#057BA2] hover:scale-105 transition-transform duration-100">
+                <button className="box-border relative shrink-0 px-6 py-4 mr-4 max-sm:mr-0 text-xs text-center rounded appearance-none cursor-pointer bg-[#5BA3BB] text-[white] max-md:mx-auto max-md:mt-5 max-sm:mx-auto max-sm:mt-5 hover:bg-[#057BA2] hover:scale-105 transition-transform duration-100">
                   REQUEST APPOINTMENT
                 </button>
                 </Link>
-                <a href="/services" className="py-1 ml-4 text-sm border-b-2 border-solid border-[#5BA3BB] text-[#5BA3BB] max-md:hidden max-sm:hidden hover:text-[#057BA2] hover:scale-105 transition-transform duration-100">
+                <a href="/sedation" className="py-1 ml-4 text-sm border-b-2 border-solid border-[#5BA3BB] text-[#5BA3BB] max-md:hidden max-sm:hidden hover:text-[#057BA2] hover:scale-105 transition-transform duration-100">
                   LEARN MORE
                 </a>
               </div>
@@ -283,10 +283,10 @@ export function MyComponent() {
             />
           </div>
           <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full animate-slide-up scroll-trigger">
-            <h2 className="pt-16 mt-auto mr-10 mb-5 ml-5 text-6xl font-bold tracking-tighter text-[#282828] max-md:max-w-full max-md:text-5xl max-md:text-center max-sm:text-center">
+            <h2 className="pt-16 mt-auto mr-10 mb-5 ml-5 max-sm:mr-0 max-sm:ml-0 text-6xl font-bold tracking-tighter text-[#282828] max-md:max-w-full max-md:text-5xl max-md:text-center max-sm:text-center">
               Professionals you can trust. Period.
             </h2>
-            <p className="mt-5 mr-10 mb-auto ml-5 text-lg leading-9 text-zinc-400 max-md:max-w-full max-md:text-center">
+            <p className="mt-5 mr-10 mb-auto ml-5 text-lg leading-9 text-zinc-400 max-md:max-w-full max-md:text-center max-sm:mr-0 max-sm:ml-0">
             Awake or Asleep Dentistry has been providing sedation dentistry in Mississauga for over 15 years. We offer several different sedation options for your comfort, ranging from light conscious sedation, deep conscious sedation, to fully asleep. Call, or schedule a consultation to discuss your options, or look around for more information.
             </p>
           </div>

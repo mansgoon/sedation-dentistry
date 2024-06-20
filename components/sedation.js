@@ -21,7 +21,7 @@ const SedationCard = ({ icon, title, description, learnMoreLink, delay, expanded
     };
   
     return (
-      <div className={`box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto bg-white rounded-lg border-2 border-solid shadow-lg border-slate-400 border-opacity-0 hover:scale-105 transition-transform duration-300 `}>
+      <div className={`box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto bg-white rounded-lg border-2 shadow-xl border-slate-400 border-opacity-25 card-custom-shadow hover:scale-105 transition-transform duration-300 `}>
         <div className="box-border flex relative flex-col shrink-0 mt-5 h-[57px]">
           <img
             loading="lazy"
@@ -33,7 +33,7 @@ const SedationCard = ({ icon, title, description, learnMoreLink, delay, expanded
         <section
           ref={contentRef}
           style={{ height: expandedCard === title ? 'auto' : height }}
-          className={`box-border flex relative flex-col grow shrink-0 self-stretch px-10 py-5 mx-auto w-full max-w-[1200px] min-h-[100px] overflow-hidden transition-height duration-200 ${
+          className={`box-border flex relative flex-col max-sm:text-center grow shrink-0 self-stretch px-10 py-5 mx-auto w-full max-w-[1200px] min-h-[100px] overflow-hidden transition-height duration-200 ${
             expandedCard === title ? 'max-h-[2500px]' : 'max-h-[150px]'
           }`}
         >
@@ -85,7 +85,7 @@ const SedationCard = ({ icon, title, description, learnMoreLink, delay, expanded
 
 const sedationOptions = [
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/43041c4f8f1663181981448c51d224d6eefc5808bdf3b2c8bc5ef8360292f7b4?apiKey=ea3aca9057654e45a61207978509cdea&",
+    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/b23b75f0833000f7fb7c4f44fa208ce02801b02435f3a12709c4a58c35911a9e?apiKey=ea3aca9057654e45a61207978509cdea&",
     title: "General Anesthesia",
     description: (
       <>
@@ -133,17 +133,17 @@ const sedationOptions = [
     learnMoreLink: "#",
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/43041c4f8f1663181981448c51d224d6eefc5808bdf3b2c8bc5ef8360292f7b4?apiKey=ea3aca9057654e45a61207978509cdea&",
+    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/cb73d166e54e648c92427df2e3ca753d8022c5fee9e14f7347153309f054e039?apiKey=ea3aca9057654e45a61207978509cdea&",
     title: "Sedation Dentistry for Children",
     description: (
         <>
         Regular dental hygiene is very important for children: When it is ignored, poor oral hygiene can have disastrous negative consequences on formative years, including low self esteem, behaviour problems, and infections that spread from baby teeth to adult teeth.<br />
         <br />
-        It is important that your child visits the dentist regularly, but what if they have difficulty cooperating? Sedation dentistry provides a highly effective solution. We provide general anesthesia and conscious sedation for children 2 +.
+        It is important that your child visits the dentist regularly, but what if they have difficulty cooperating? Sedation dentistry provides a highly effective solution. We provide general anesthesia and conscious sedation for children 2+.
         <div className="flex justify-center">
             <div className="text-left">
             <br />
-            <span className="font-bold text-center text-[#282828]">Why Sedation Dentistry for Children?</span><br />
+            <span className="font-bold text-[#282828]">Why Sedation Dentistry for Children?</span><br />
             <br />
             There are several reasons why you may choose sedation dentistry for yourself or a family member, including:
             <ul className="list-none mt-5">
@@ -183,35 +183,48 @@ const sedationOptions = [
     learnMoreLink: "#",
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/43041c4f8f1663181981448c51d224d6eefc5808bdf3b2c8bc5ef8360292f7b4?apiKey=ea3aca9057654e45a61207978509cdea&",
+    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/d7dec689b0e972054b7de3e9d9c36963169e3cecc7d340d6f79545febc45e77f?apiKey=ea3aca9057654e45a61207978509cdea&",
     title: "Conscious Sedation",
     description: (
-        <>
-        During conscious sedation, medication is used to help ease anxiety. Depending on the level of sedation, you can be lightly relaxed, or you can be sedated to the edge of consciousness where you will not be aware of much of the procedure and sights, sounds and smells will be toned out.<br />
+      <>
+        During conscious sedation, medication is used to help ease anxiety. Depending on the level of sedation, you can be lightly relaxed, or you can be sedated to the edge of consciousness where you will not be aware of much of the procedure and sights, sounds, and smells will be toned out.
         <br />
-        <span className="font-bold text-center text-[#282828] mt-5 mb-2">Conscious Sedation VS. General Anesthesia</span><br />
         <br />
-        Conscious sedation options include nitrous oxide (laughing gas), oral sedation and IV sedation. With these options you normally remain awake during the procedure, whereas with general anesthesia you will be completely asleep. The most effective forms of sedation are the deeper sedation methods, including IV conscious sedation and general anesthesia. However, nitrous oxide (laughing gas) or oral sedation may also be appropriate depending on the severity your anxiety. To learn more about what type of sedation is right for you, schedule a consultation.<br />
+        <span className="font-bold text-center text-[#282828] mt-5 mb-2">Conscious Sedation VS. General Anesthesia</span>
         <br />
-        <span className="font-bold text-center text-[#282828] mt-5 mb-2">Nitrous Oxide (Laughing Gas)</span><br />
         <br />
-        Nitrous oxide is very safe. Mixed with oxygen, you simply breathe it in through a mask covering your nose. You will begin to feel relaxing effects within a few minutes. If you experience light-headedness or tingling sensations it is perfectly normal and nothing to be concerned about. Laughing gas will not cause you to lose consciousness. You will still be aware of the procedure, but anxiety will be relieved. For most procedures you will also receive a local anesthetic that will have a numbing effect, ensuring you feel no pain during your procedure. The effects of nitrous oxide begin to subside soon after the mask is removed. If this is the only form of sedation during your procedure, you will be able to drive yourself home afterwards.<br />
+        Conscious sedation options include nitrous oxide (laughing gas), oral sedation, and IV sedation. With these options, you normally remain awake during the procedure, whereas with general anesthesia, you will be completely asleep. The most effective forms of sedation are the deeper sedation methods, including IV conscious sedation and general anesthesia. However, nitrous oxide (laughing gas) or oral sedation may also be appropriate depending on the severity of your anxiety. To learn more about what type of sedation is right for you, <a href="/contact" className="underline text-[#057BA2]">schedule a consultation.</a>
         <br />
-        <span className="font-bold text-center text-[#282828] mt-5 mb-2">Dental Oral Sedation</span><br />
         <br />
-        Sedatives used for oral sedation usually come from the family of drugs known as benzodiazepines. You normally remain awake, but may not remember much of what happened. You will need a caregiver to escort you home after the appointment.<br />
+        <span className="font-bold text-center text-[#282828] mt-5 mb-2">Nitrous Oxide (Laughing Gas)</span>
         <br />
-        <span className="font-bold text-center text-[#282828] mt-5 mb-2">IV Sedation Dentistry</span><br />
         <br />
-        IV sedation dentistry is a type of sedation where a sedative medication is administered intravenously, causing the patient to feel very relaxed, safe, and comfortable. The effects are often referred to as "twilight sleep," where the patient is not fully asleep but will not feel or remember any discomfort. IV sedation works quickly and helps tone out sensory perceptions like sight, sound, and smell, making it easier for the dentist to achieve the best results. It is especially effective for patients with extreme or high gag reflex.<br />
+        Nitrous oxide is very safe. Mixed with oxygen, you simply breathe it in through a mask covering your nose. You will begin to feel relaxing effects within a few minutes. If you experience light-headedness or tingling sensations, it is perfectly normal and nothing to be concerned about. Laughing gas will not cause you to lose consciousness. You will still be aware of the procedure, but anxiety will be relieved. For most procedures, you will also receive a local anesthetic that will have a numbing effect, ensuring you feel no pain during your procedure. The effects of nitrous oxide begin to subside soon after the mask is removed. If this is the only form of sedation during your procedure, you will be able to drive yourself home afterwards.
         <br />
-        Before scheduling an IV sedation appointment, a consultation is arranged to check the patient's medical history, medications, and address any concerns or questions. Prior to the appointment, vital signs such as blood pressure, oxygen level, and pulse are checked to ensure safety and efficiency. During the session, the patient's vital signs and medication level are monitored. After the dental work is completed, the patient will need a ride home with a friend or relative.<br />
         <br />
-        Patients considering IV sedation may also want to consider general anesthesia (fully unconscious sedation) and should schedule a consultation to discuss their options.<br />
+        <span className="font-bold text-center text-[#282828] mt-5 mb-2">Dental Oral Sedation</span>
+        <br />
+        <br />
+        Sedatives used for oral sedation usually come from the family of drugs known as benzodiazepines. You normally remain awake but may not remember much of what happened. <span className="underline font-semibold">You will need a caregiver to escort you home after the appointment.</span>
+        <br />
+        <br />
+        <span className="font-bold text-center text-[#282828] mt-5 mb-2">IV Sedation Dentistry</span>
+        <br />
+        <br />
+        IV sedation dentistry is a type of sedation where a sedative medication is administered intravenously, causing the patient to feel very relaxed, safe, and comfortable. The effects are often referred to as "twilight sleep," where the patient is not fully asleep but will not feel or remember any discomfort. IV sedation works quickly and helps tone out sensory perceptions like sight, sound, and smell, making it easier for the dentist to achieve the best results. It is especially effective for patients with extreme or high gag reflex.
+        <br />
+        <br />
+        Before scheduling an IV sedation appointment, a consultation is arranged to check the patient's medical history, medications, and address any concerns or questions. Prior to the appointment, vital signs such as blood pressure, oxygen level, and pulse are checked to ensure safety and efficiency. During the session, the patient's vital signs and medication level are monitored. After the dental work is completed, the patient will need a ride home with a friend or relative.
+        <br />
+        <br />
+        Patients considering IV sedation may also want to consider general anesthesia (fully unconscious sedation) and should <a href="/contact" className="underline text-[#057BA2]">schedule a consultation</a> to discuss their options.
+        <br />
       </>
     ),
     learnMoreLink: "#",
-  },
+  }
+  
+
 ];
 
 export function SedationPage() {
@@ -222,7 +235,7 @@ export function SedationPage() {
       <div className="box-border flex relative flex-col shrink-0 p-5 min-h-[100px]">
         <section className="box-border flex relative flex-col grow shrink-0 self-stretch p-5 mx-auto w-full max-w-[1200px] min-h-[100px]">
           <div className="box-border flex relative flex-col shrink-0 mt-5 h-auto">
-            <h2 className="box-border relative shrink-0 mx-auto mt-5 h-auto text-7xl font-extrabold text-center text-zinc-800 opacity-0 animate-fade-in animation-delay-1">
+            <h2 className="box-border relative shrink-0 mx-auto mt-5 h-auto text-7xl max-sm:text-6xl font-extrabold text-center text-zinc-800 opacity-0 animate-fade-in animation-delay-1">
               Sedation<br/> Dentistry
             </h2>
             <img
@@ -240,7 +253,7 @@ export function SedationPage() {
       <div className="box-border flex relative flex-col shrink-0 pb-8 h-auto">
         <div className="box-border flex relative flex-col shrink-0 pb-8 mt-5 h-auto">
           <div className="box-border flex relative flex-col items-center shrink-0 mt-5 bg-center bg-cover bg-[url(https://cdn.builder.io/api/v1/image/assets/TEMP/59c731ff3ec0ed08f28a50812e69ce7f4a895bedd99ce9beae712e0f59f282d9?apiKey=ea3aca9057654e45a61207978509cdea&)] min-h-screen min-w-screen">
-            <div className="flex flex-col w-10/12 max-w-[1200px] mx-auto">
+            <div className="flex flex-col w-10/12 max-w-[1200px] mx-auto space-y-8">
               {sedationOptions.map((option, index) => (
                 <SedationCard
                   key={option.title}
