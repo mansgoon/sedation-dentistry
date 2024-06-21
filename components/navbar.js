@@ -129,15 +129,15 @@ function Header() {
       }`}
       style={{ boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}
     >
-      <Link href="/" passHref>
+      {/* <Link href="/" passHref>
         <div className="flex gap-2.5 text-2xl tracking-wide text-[#282828] hover:scale-105 transition-transform duration-300">
           <Logo />
           <div className="flex-auto my-auto text-[#282828] hidden md:block">
             Awake or<span className="text-[#688DAC]"> Asleep</span> Dentistry
           </div>
         </div>
-      </Link>
-      {/* <Link href="/" passHref>
+      </Link> */}
+      <Link href="/" passHref>
         <div className="flex gap-2.5 text-2xl tracking-wide text-[#282828] hover:scale-105 transition-transform duration-300">
           <Logo />
           <div className="flex-auto my-auto text-[#282828] hidden sm:block">
@@ -147,7 +147,7 @@ function Header() {
             Awake <span className="text-[#688DAC]"> or</span> Asleep
           </div>
         </div>
-      </Link> */}
+      </Link>
       <div className="hidden md:flex gap-5 justify-between max-md:flex-wrap max-md:max-w-full">
         <NavigationMenu isMobile={false} onLinkClick={handleLinkClick} />
         <AppointmentButton onClick={handleLinkClick} />
