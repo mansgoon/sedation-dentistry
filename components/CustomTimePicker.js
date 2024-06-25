@@ -42,7 +42,7 @@ const CustomTimePicker = ({ value, onChange }) => {
     let [hour, minute, currentPeriod] = selectedTime.split(/:|\s/);
 
     if (type === 'hour') {
-      hour = value.toString().padStart(2, '0');
+      hour = value.toString();
       currentPeriod = period;
     }
     if (type === 'minute') {
@@ -79,7 +79,7 @@ const CustomTimePicker = ({ value, onChange }) => {
       >
         {selectedTime}
         <div className={`absolute right-2 transform transition-transform ${isOpen ? '-rotate-180' : ''}`}>
-          {isOpen ? <ChevronUp size={20} /> : <ChevronUp size={20} />}
+          <ChevronUp size={20} />
         </div>
       </div>
       {isOpen && (
@@ -97,7 +97,7 @@ const CustomTimePicker = ({ value, onChange }) => {
                   className="p-2 hover:bg-gray-100 cursor-pointer text-center"
                   onClick={() => handleTimeChange('hour', item.hour, item.period)}
                 >
-                  {item.hour.toString().padStart(2, '0')}
+                  {item.hour}
                 </div>
               ))}
             </div>

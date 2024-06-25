@@ -262,6 +262,7 @@ function ContactForm() {
                 Preferred Date
               </label>
               <DatePicker
+                onFocus={e => e.target.blur()}
                 id="date"
                 name="date"
                 selected={formData.date}
