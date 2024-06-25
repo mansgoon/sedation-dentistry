@@ -11,6 +11,8 @@ import { Map } from '@/components/map.js';
 import emailjs from 'emailjs-com';
 import ToastDemo from '@/components/ui/Toast.jsx';
 import ReCAPTCHA from 'react-google-recaptcha';
+import CustomTimePicker from "./CustomTimePicker";
+import { format } from 'date-fns';
 
 function ContactSection() {
   return (
@@ -62,7 +64,7 @@ async function sendEmail(formData, recaptchaResponse) {
     lastName,
     email,
     phoneNumber,
-    date: date ? date.toDateString() : '',
+    date: date ? format(date, 'MMMM dd, yyyy') : '',
     time,
     messageBox,
     'g-recaptcha-response': recaptchaResponse,
@@ -97,100 +99,93 @@ function getDisabledDates(startDate, endDate) {
 }
 
 function ContactForm() {
-  
-    const [selectedDate, setSelectedDate] = React.useState(null);
-    const [selectedTime, setSelectedTime] = React.useState('10:00');
+  const [selectedDate, setSelectedDate] = React.useState(null);
+  const [selectedTime, setSelectedTime] = React.useState('10:00');
+  const [showToast, setShowToast] = useState(false);
+  const [toastDate, setToastDate] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-    const [showToast, setShowToast] = useState(false);
-    const [toastDate, setToastDate] = useState(null);
-    const [loading, setLoading] = useState(false);
+  const handleTimeChange = (time) => {
+    setFormData({ ...formData, time });
+  };
 
-    const handleTimeChange = (event) => {
-      setSelectedTime(event.target.value);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    date: null,
+    time: '10:00 AM', // Ensure the initial time format is correct
+    messageBox: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleDateChange = (date) => {
+    setFormData({ ...formData, date });
+  };
+
+  const [recaptchaResponse, setRecaptchaResponse] = useState('');
+
+  const handleRecaptchaChange = (response) => {
+    setRecaptchaResponse(response);
+  };
+
+  const startDate = new Date();
+  const endDate = new Date(2026, 11, 31); // December 31, 2024
+
+  const disabledDates = getDisabledDates(startDate, endDate);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    // Check if reCAPTCHA is completed
+    if (!recaptchaResponse) {
+      alert('Please complete the reCAPTCHA.');
+      setLoading(false);
+      return;
+    }
+
+    // Ensure the time is already in the correct format (AM/PM) as selected by the user
+    const formattedTime = formData.time;
+
+    const formDataWithTime12h = {
+      ...formData,
+      time: formattedTime,
     };
 
-    const [formData, setFormData] = useState({
-      firstName: '',
-      lastName: '',
-      email: '',
-      phoneNumber: '',
-      date: null,
-      time: '10:00',
-      messageBox: '',
-    });
-  
-    const handleChange = (e) => {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-  
-    const handleDateChange = (date) => {
-      setFormData({ ...formData, date });
-    };
+    try {
+      const result = await sendEmail(formDataWithTime12h, recaptchaResponse);
 
-    const [recaptchaResponse, setRecaptchaResponse] = useState('');
-
-    const handleRecaptchaChange = (response) => {
-      setRecaptchaResponse(response);
-    };
-    
-    const startDate = new Date();
-    const endDate = new Date(2026, 11, 31); // December 31, 2024
-
-    const disabledDates = getDisabledDates(startDate, endDate);
-  
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      setLoading(true);
-    
-      // Check if reCAPTCHA is completed
-      if (!recaptchaResponse) {
-        alert('Please complete the reCAPTCHA.');
-        setLoading(false);
-        return;
-      }
-    
-      // Convert time to AM/PM format
-      const [hours, minutes] = formData.time.split(':');
-      const time12h = new Date(0, 0, 0, hours, minutes).toLocaleTimeString('en-US', {
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: true,
-      });
-    
-      const formDataWithTime12h = {
-        ...formData,
-        time: time12h,
-      };
-    
-      try {
-        const result = await sendEmail(formDataWithTime12h, recaptchaResponse);
-    
-        if (result.success) {
-          setFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            phoneNumber: '',
-            date: null,
-            time: '10:00',
-            messageBox: '',
-          });
-          setShowToast(true);
-          setToastDate(formData.date);
-          setRecaptchaResponse(''); // Reset reCAPTCHA response
-        } else {
-          alert('Error submitting form');
-        }
-      } catch (error) {
-        console.error('Error submitting form:', error);
+      if (result.success) {
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phoneNumber: '',
+          date: null,
+          time: '10:00 AM',
+          messageBox: '',
+        });
+        setShowToast(true);
+        setToastDate(formData.date);
+        setRecaptchaResponse(''); // Reset reCAPTCHA response
+      } else {
         alert('Error submitting form');
-      } finally {
-        setLoading(false);
       }
-    };
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Error submitting form');
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    return (
-      <form onSubmit={handleSubmit}>
+  return (
+    <form onSubmit={handleSubmit}>
       <div className="box-border flex relative flex-col shrink-0 pb-8 ml-52 h-auto rounded-lg border-2 border-solid border-[#5BA3BB] max-md:mx-5 max-sm:mx-5 animate-fade-in animation-delay-3">
         <div className="flex gap-5 max-sm:flex-col max-md:gap-0">
           <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
@@ -210,23 +205,23 @@ function ContactForm() {
               />
             </div>
           </div>
-          <div className="flex flex-col  w-1/2 max-sm:ml-0 max-sm:w-full">
-          <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 mt-5 h-auto">
-            <label htmlFor="lastName" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium">
-              Last name
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              placeholder="Last name"
-              name="lastName"
-              value={formData.lastName}
-              onChange={handleChange}
-              className="box-border flex relative flex-col shrink-0 w-full p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
-              required
-            />
+          <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
+            <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 mt-5 h-auto">
+              <label htmlFor="lastName" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium">
+                Last name
+              </label>
+              <input
+                type="text"
+                id="lastName"
+                placeholder="Last name"
+                name="lastName"
+                value={formData.lastName}
+                onChange={handleChange}
+                className="box-border flex relative flex-col shrink-0 w-full p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
+                required
+              />
+            </div>
           </div>
-        </div>
         </div>
         <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 h-auto">
           <label htmlFor="email" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium">
@@ -256,7 +251,7 @@ function ContactForm() {
             onChange={handleChange}
             pattern="[0-9]{10}"
             title="Please enter a 10-digit phone number"
-            className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1" 
+            className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
             required
           />
         </div>
@@ -281,18 +276,13 @@ function ContactForm() {
             </div>
           </div>
           <div className="flex flex-col ml-5 w-1/2 max-sm:ml-0 max-sm:w-full">
-            <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5  h-auto">
-              <label htmlFor="time" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium"> 
-              Preferred Time
+            <div className="box-border flex relative flex-col shrink-0 pb-8 mx-5 h-auto">
+              <label htmlFor="time" className="box-border relative shrink-0 mt-5 h-auto text-zinc-800 font-medium">
+                Preferred Time
               </label>
-              <input
-                type="time"
-                id="time"
-                name="time"
+              <CustomTimePicker
                 value={formData.time}
-                onChange={handleChange}
-                className="box-border flex relative flex-col shrink-0 w-full p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
-                required
+                onChange={handleTimeChange}
               />
             </div>
           </div>
@@ -331,9 +321,9 @@ function ContactForm() {
         </div>
       </div>
       {showToast && <ToastDemo open={showToast} onOpenChange={setShowToast} date={toastDate} />}
-      </form>
-    );
-  }
+    </form>
+  );
+}
 
 
   export function ContactPage() {

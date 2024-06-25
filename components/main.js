@@ -51,7 +51,7 @@ export function MyComponent() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1756);
+      setIsDesktop(window.innerWidth >= 1459); //was 1756
     };
 
     handleResize(); // Set initial value
@@ -200,7 +200,7 @@ export function MyComponent() {
               />
             </div>
             <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full animate-slide-up scroll-trigger">
-              <h2 className="self-start my-auto mr-10 ml-5 text-6xl font-bold tracking-tight text-[#282828] max-md:mr-2.5 max-md:mt-10 max-md:mb-10 max-md:max-w-full max-md:text-center max-sm:text-center max-sm:text-5xl max-sm:mb-5 text-balanced">
+              <h2 className="self-start my-auto mr-10 ml-5 text-6xl font-bold tracking-tight text-[#282828] max-md:mr-2.5 max-md:mt-10 max-md:mb-10 max-md:max-w-full max-md:text-center max-sm:text-center max-sm:text-5xl max-sm:mb-5">
               Relaxed dental visits with expert <span className="underline decoration-[#5BA3BB] decoration-dashed underline-offset-8">sedation care.</span>
               </h2>
               <p className="self-end mr-10 mb-auto text-lg ml-5 leading-9 text-zinc-400 max-md:pt-4 max-md:mt-0 max-md:mr-2.5 max-md:max-w-full max-md:text-center  max-sm:text-center">
@@ -293,7 +293,7 @@ export function MyComponent() {
               Professionals you can trust. Period.
             </h2>
             <p className="mt-5 mr-10 mb-auto ml-5 text-lg leading-9 text-zinc-400 max-md:max-w-full max-md:text-center max-sm:mr-0 max-sm:ml-0">
-            Awake or Asleep Dentistry has been providing sedation dentistry in Mississauga for over 15 years. We offer several different sedation options for your comfort, ranging from light conscious sedation, deep conscious sedation, to fully asleep. Call, or schedule a consultation to discuss your options, or look around for more information.
+            Awake or Asleep Dentistry has been providing sedation dentistry in Mississauga for over 20 years. We offer several different sedation options for your comfort, ranging from light conscious sedation, deep conscious sedation, to fully asleep. Call, or schedule a consultation to discuss your options, or look around for more information.
             </p>
           </div>
         </div>

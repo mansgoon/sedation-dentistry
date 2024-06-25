@@ -141,7 +141,7 @@ function Header() {
         <div className="flex gap-2.5 text-2xl tracking-wide text-[#282828] hover:scale-105 transition-transform duration-300">
           <Logo />
           <div className="flex-auto my-auto text-[#282828] hidden sm:block">
-            Awake or<span className="text-[#688DAC]"> Asleep</span> Dentistry
+            Awake or Asleep Dentistry
           </div>
           <div className="flex-auto my-auto text-[#282828] sm:hidden">
             Awake <span className="text-[#688DAC]"> or</span> Asleep

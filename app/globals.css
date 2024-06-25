@@ -246,3 +246,12 @@ body {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(156, 163, 175, 0.5);
 }
+
+
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
