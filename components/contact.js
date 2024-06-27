@@ -6,7 +6,7 @@ import { addDays, isAfter, isBefore, isToday, isWeekend } from 'date-fns';
 import { useState } from 'react';
 import 'react-time-picker/dist/TimePicker.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner, faFileMedical, faMaskVentilator } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faFileMedical, faMaskVentilator, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { Map } from '@/components/map.js';
 import emailjs from 'emailjs-com';
 import ToastDemo from '@/components/ui/Toast.jsx';
@@ -39,7 +39,7 @@ function ContactSection() {
           <span className="text-center">First Visit</span>
         </a>
         <a
-          href="https://sedationdentistry.ca/wp-content/uploads/2020/07/20191118-SurgiServices-AnaesQuestionnaire-2019_fill-v2_new.pdf"
+          href="/2024-Anesthesia-Questionnaire.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-48 px-6 py-3 border-2 border-[#5BA3BB] rounded-lg text-[#5BA3BB] hover:bg-[#5BA3BB] hover:text-white transition-colors hover:scale-105 transition-transform duration-200 border-gradient"
@@ -104,10 +104,7 @@ function ContactForm() {
   const [showToast, setShowToast] = useState(false);
   const [toastDate, setToastDate] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const handleTimeChange = (time) => {
-    setFormData({ ...formData, time });
-  };
+  const [timeError, setTimeError] = useState('');
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -115,7 +112,7 @@ function ContactForm() {
     email: '',
     phoneNumber: '',
     date: null,
-    time: '10:00 AM', // Ensure the initial time format is correct
+    time: '10:00 AM',
     messageBox: '',
   });
 
@@ -125,6 +122,12 @@ function ContactForm() {
 
   const handleDateChange = (date) => {
     setFormData({ ...formData, date });
+    setTimeError('');
+  };
+
+  const handleTimeChange = (time) => {
+    setFormData({ ...formData, time });
+    setTimeError('');
   };
 
   const [recaptchaResponse, setRecaptchaResponse] = useState('');
@@ -134,31 +137,60 @@ function ContactForm() {
   };
 
   const startDate = new Date();
-  const endDate = new Date(2026, 11, 31); // December 31, 2024
+  const endDate = new Date(2026, 11, 31);
 
   const disabledDates = getDisabledDates(startDate, endDate);
+
+  const isTimeWithinOfficeHours = (time, date) => {
+    const [hours, minutes] = time.split(':').map(Number);
+    const dayOfWeek = date.getDay();
+
+    // Monday - Tuesday: 11am - 7pm
+    if ((dayOfWeek === 1 || dayOfWeek === 2) && (hours < 11 || hours >= 19)) {
+      return false;
+    }
+    // Wednesday - Thursday: 8am - 4pm
+    if ((dayOfWeek === 3 || dayOfWeek === 4) && (hours < 8 || hours >= 16)) {
+      return false;
+    }
+    // Friday: 8am - 3pm
+    if (dayOfWeek === 5 && (hours < 8 || hours >= 15)) {
+      return false;
+    }
+    // Saturday - Sunday: Closed
+    if (dayOfWeek === 0 || dayOfWeek === 6) {
+      return false;
+    }
+
+    return true;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setTimeError('');
 
-    // Check if reCAPTCHA is completed
     if (!recaptchaResponse) {
       alert('Please complete the reCAPTCHA.');
       setLoading(false);
       return;
     }
 
-    // Ensure the time is already in the correct format (AM/PM) as selected by the user
-    const formattedTime = formData.time;
+    const [time, period] = formData.time.split(' ');
+    const [hours, minutes] = time.split(':');
+    let hour24 = parseInt(hours);
+    if (period === 'PM' && hour24 !== 12) hour24 += 12;
+    if (period === 'AM' && hour24 === 12) hour24 = 0;
+    const timeString = `${hour24.toString().padStart(2, '0')}:${minutes}`;
 
-    const formDataWithTime12h = {
-      ...formData,
-      time: formattedTime,
-    };
+    if (!isTimeWithinOfficeHours(timeString, formData.date)) {
+      setTimeError('Selected time is outside of office hours. Please choose a time within our operating hours.');
+      setLoading(false);
+      return;
+    }
 
     try {
-      const result = await sendEmail(formDataWithTime12h, recaptchaResponse);
+      const result = await sendEmail(formData, recaptchaResponse);
 
       if (result.success) {
         setFormData({
@@ -172,7 +204,7 @@ function ContactForm() {
         });
         setShowToast(true);
         setToastDate(formData.date);
-        setRecaptchaResponse(''); // Reset reCAPTCHA response
+        setRecaptchaResponse('');
       } else {
         alert('Error submitting form');
       }
@@ -285,6 +317,15 @@ function ContactForm() {
                 value={formData.time}
                 onChange={handleTimeChange}
               />
+              {timeError && (
+              <div className="mt-2 p-2 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong className="font-bold">Error:</strong>
+                <span className="block sm:inline"> {timeError}</span>
+                <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+                  <FontAwesomeIcon icon={faExclamationCircle} />
+                </span>
+              </div>
+            )}
             </div>
           </div>
         </div>
