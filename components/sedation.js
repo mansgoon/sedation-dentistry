@@ -226,9 +226,6 @@ const sedationOptions = [
         <br />
         Before scheduling an IV sedation appointment, a consultation is arranged to check the patient&apos;s medical history, medications, and address any concerns or questions. Prior to the appointment, vital signs such as blood pressure, oxygen level, and pulse are checked to ensure safety and efficiency. During the session, the patient&apos;s vital signs and medication level are monitored. After the dental work is completed, the patient will need a ride home with a friend or relative.
         <br />
-        <br />
-        Patients considering IV sedation may also want to consider general anesthesia (fully unconscious sedation) and should <a href="/contact" className="underline text-[#057BA2]">schedule a consultation</a> to discuss their options.
-        <br />
       </>
     ),
     learnMoreLink: "#",
