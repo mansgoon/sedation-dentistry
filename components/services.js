@@ -124,7 +124,7 @@ const services = [
       <>
         Wisdom teeth typically emerge between the ages of 15-25 and can cause various problems, such as becoming impacted and unable to break through the gums, partially breaking through with gum tissue growing over them and trapping food and germs leading to infection, or coming in at the wrong angle and causing crowding of the back teeth. Wisdom tooth removal surgery involves opening the gum tissue, removing any covering bone, separating the connective tissue, and extracting the tooth. Stitches and gauze pads may be used to control bleeding after the procedure.<br />
         <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Sedation Options for Wisdom Tooth Removal</span><br />
-        <br />Awake or Asleep Dental offers several sedation options to minimize pain and discomfort during wisdom tooth removal, including <a href="/sedation" className="underline text-[#057BA2]">conscious sedation (laughing gas, oral sedation, IV sedation) and general anesthesia</a>, combined with anesthetics. After the surgery, patients should follow post-operative instructions such as biting gently on gauze pads, avoiding biting their tongue, lip, or mouth due to numbness, using pillows to raise their head to reduce bleeding, applying ice packs for the first 24 hours followed by warm compresses, and gradually progressing from soft to solid foods.<br/>
+        <br />Awake or Asleep Dental offers several sedation options to minimize pain and discomfort during wisdom tooth removal, including <a href="/sedation" className="underline text-[#057BA2]">conscious sedation (laughing gas, IV sedation) and general anesthesia</a>, combined with anesthetics. After the surgery, patients should follow post-operative instructions such as biting gently on gauze pads, avoiding biting their tongue, lip, or mouth due to numbness, using pillows to raise their head to reduce bleeding, applying ice packs for the first 24 hours followed by warm compresses, and gradually progressing from soft to solid foods.<br/>
         <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Proper Healing and Recovery</span><br />
         <br />To ensure proper healing, patients should avoid using straws for at least 3 days, rinse their mouth with warm salt water several times a day after the first day, refrain from smoking for a minimum of <span className="underline font-semibold">24 hours</span>, and avoid rubbing the wound with fingers or tongue. Brushing teeth and tongue should be done with caution to avoid aggravating the healing wound. By following these guidelines and the advice of their dental professional, patients can minimize complications and promote a smooth recovery after wisdom tooth removal.<br />&nbsp;
       </>
@@ -163,22 +163,36 @@ const services = [
         <br />A <span className="underline font-semibold">partial denture</span> is used when you still have natural teeth left. Crowns are placed on the teeth adjacent to the missing tooth with a bridge between them that the partial denture attaches to. The partial denture can be blended to match the existing teeth very closely. The partial denture will also prevent your surrounding teeth from shifting.<br />
         <br />A <span className="underline font-semibold">complete denture</span> replaces all of your teeth. We can fit you with an immediate denture that can be made in advance that you can wear right away. Your denture will be made using top quality materials, and custom crafted so that it complements your skin, hair and eyes.<br/>
         <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Sedation</span><br />
-        <br />At Awake or Asleep we offer several sedation options to help ensure that you will be comfortable, including <a href="/sedation" className="underline text-[#057BA2]">conscious sedation (laughing gas, oral sedation, IV sedation) and general anesthesia</a> for a comfortable experience.<br />&nbsp;
+        <br />At Awake or Asleep we offer several sedation options to help ensure that you will be comfortable, including <a href="/sedation" className="underline text-[#057BA2]">conscious sedation (laughing gas, IV sedation) and general anesthesia</a> for a comfortable experience.<br />&nbsp;
       </>
     ),
     learnMoreLink: "#",
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/e2d2dd4250f8ed68dd9a84cf425120d789d533d3087ccdda8cecfa984aeacb05?apiKey=ea3aca9057654e45a61207978509cdea&",
-    title: "Fillings & Root Canals",
+    title: "Root Canals",
     description: (
       <>
-        Dental fillings, including composite or &quot;white fillings&quot;, are often preferred over silver fillings due to their aesthetic benefits and ability to more closely match existing teeth. White fillings also require less removal of natural tooth structure, provide a tighter seal, and can result in a stronger restored tooth with less chance of future fracturing compared to silver fillings. Cavity fillings should be treated as soon as possible, with the ideal time for pregnant women being during the 1st and 2nd trimesters to avoid difficulty lying on one&apos;s back for extended periods in the 3rd trimester.<br />
-        <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Root Canal Procedures</span><br />
-        <br />Root canal procedures are necessary when the nerve of a tooth becomes infected or the pulp is damaged, in order to remove the infected nerve and pulp. Common signs and symptoms include pain when chewing, prolonged sensitivity to hot or cold, darkening of the tooth, tenderness or swelling in nearby gums, or a recurring pimple on the gums. However, it is possible to have an infection without any symptoms, making regular dental checkups important. Modern technology and anesthetics have made root canals no more painful than getting a cavity filled.<br />
-        <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Root Canal Treatment Process</span><br />
-        <br />Most root canals can be completed in a single visit, though more complicated cases may require multiple appointments. Patients often prefer root canals over extractions as they allow for saving the natural teeth and are typically more cost-effective than replacement options like implants or dentures. Awake or Asleep Dental offers several sedation options for root canals, including <a href="/sedation" className="underline text-[#057BA2]">conscious sedation (laughing gas, oral sedation, IV sedation) and general anesthesia</a> for a comfortable experience.&nbsp;
+        When the nerve of the tooth becomes infected or the pulp becomes damaged, a root canal procedure should be performed to remove the infected nerve and pulp. Ignoring the problem can allow an infection to get worse, usually leading to pain. An abscess may form which can spread to surrounding bones and tissues, expanding problems beyond the original tooth.<br />
+        <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Is a Root Canal Painful?</span><br />
+        <br />A root canal has a reputation for being a painful procedure, but this is a myth. Decades ago this was the case, but today with modern technology and anesthetics a root canal is normally no more painful than getting a cavity filled. At Awake or Asleep we also offer a variety of sedation options that can make the procedure very comfortable for you.<br />
+        <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Root Canal Time</span><br />
+        <br />Most root canals can be done in a single visit. More complicated cases such as teeth with multiple roots, curved roots, or infections could require more than one visit.<br />
+        <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Root Canal VS. Extraction</span><br />
+        <br />Most people prefer a root canal over extraction because it allows them to save their natural teeth. Also, a root canal is usually a more economical solution. If you have your tooth extracted, you’ll probably want to have it replaced with an implant or denture to restore chewing function and avoid your teeth shifting, and these procedures are all more expensive than a root canal.<br />
+        <br /><span className="font-bold text-center text-[#282828] mt-5 mb-2">Sedation</span><br />
+        <br />At Awake or Asleep we offer several sedation options to help ensure that you will be comfortable during this procedure, including:
         <br />
+        <ul className="list-none mt-5">
+              <li className="flex items-center mb-2">
+              <span className="text-[#5BA3BB] mr-2">&#10142;</span>
+              <a href="/sedation" className="underline text-[#057BA2]">Conscious sedation, including laughing gas (nitrous oxide) and intravenous sedation</a>
+              </li>
+              <li className="flex items-center mb-2">
+              <span className="text-[#5BA3BB] mr-2">&#10142;</span>
+              <a href="/sedation" className="underline text-[#057BA2]">General anesthesia (fully unconscious sedation)</a>
+              </li>
+          </ul>
       </>
     ),
     learnMoreLink: "#",
@@ -223,7 +237,7 @@ const services = [
           </ul>
       <span className="font-bold text-center text-[#282828] mt-5 mb-2">Sedation</span><br />
       <br />
-      At Awake or Asleep we offer several sedation options to help ensure that you will be comfortable during this procedure, including <a href="/sedation" className="underline text-[#057BA2]">conscious sedation (laughing gas, oral sedation, IV sedation) and general anesthesia</a> for a comfortable experience.<br />
+      At Awake or Asleep we offer several sedation options to help ensure that you will be comfortable during this procedure, including <a href="/sedation" className="underline text-[#057BA2]">conscious sedation (laughing gas, IV sedation) and general anesthesia</a> for a comfortable experience.<br />
     </>
     ),
     learnMoreLink: "#",

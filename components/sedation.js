@@ -34,7 +34,7 @@ const SedationCard = ({ icon, title, description, learnMoreLink, delay, expanded
           ref={contentRef}
           style={{ height: expandedCard === title ? 'auto' : height }}
           className={`box-border flex relative flex-col max-sm:text-center grow shrink-0 self-stretch px-10 py-5 mx-auto w-full max-w-[1200px] min-h-[100px] overflow-hidden transition-height duration-200 ${
-            expandedCard === title ? 'max-h-[2500px]' : 'max-h-[150px]'
+            expandedCard === title ? 'max-h-[2900px]' : 'max-h-[150px]'
           }`}
         >
           <h3 className="box-border relative shrink-0 mx-auto mt-5 mb-2.5 h-auto font-extrabold text-xl text-[#282828]">
@@ -125,16 +125,26 @@ const sedationOptions = [
         <br />
         Awake or Asleep offers a full range of sedation options and has been regularly providing sedation dentistry in Mississauga for over 20 years. Many other dental offices in Mississauga refer patients to Awake or Asleep to treat their patients under sedation. At Awake or Asleep you get ideal safety and speed for your procedure. Anesthesia is administered by a hospital level M.D. with a specialty certification in anesthesiology, while dentistry is performed. You are being constantly monitored by the anesthesiologist, and the dentist is able to work uninterrupted.<br />
         <br />
+        We have proudly maintained a long-term partnership with our anesthesia group <span className="underline font-semibold">since 1999</span><br />
+        <br />
         <span className="font-bold text-center text-[#282828] mt-5 mb-2">General Anesthesia for Kids 2+</span><br />
         <br />
-        General anesthesia has an excellent record of safety, as has been proven by multiple scientific studies. We have regularly been providing sedation dentistry for children in Mississauga for over 20 years. Many other dental offices in Mississauga also refer children to Awake or Asleep to treat their patients under general anesthesia.<br />
+        General anesthesia has an excellent record of safety, as proven by multiple scientific studies. We have regularly provided dentistry for children under general anesthesia in Mississauga for over 20 years.<br />
+        <br />
+        <span className="font-bold text-center text-[#282828] mt-5 mb-2">About General Anesthesia</span><br />
+        <br />
+        Under general anesthesia, you will be completely asleep and have no sensory perception, feeling of pain, or memory of the dental procedures whatsoever. This is the only sedation option where you are fully asleep. When you are under general anesthesia, you will be constantly monitored by a medical doctor/anesthesiologist and a registered nurse. The anesthesiologist and registered nurse utilize professional, hospital-grade equipment to administer the general anesthesia in a safe and consistent manner. Typically, general anesthesia is initiated using a face mask. For patients who may be in discomfort upon recovery, long-lasting painkillers and local anesthesia (freezing) are given prior to waking. Someone close to you will need to drive you home afterward.
+        <br />
+        <br />
+        Prior to scheduling an appointment for anesthesia, we always arrange a consultation appointment. We check your medical history, review your list of medications, and address any concerns or questions you might have. We will check your blood pressure, test your oxygen level, and measure your pulse to ensure that anesthesia sedation can be done safely and efficiently.
+        <br />
       </>
     ),
     learnMoreLink: "#",
   },
   {
     icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/cb73d166e54e648c92427df2e3ca753d8022c5fee9e14f7347153309f054e039?apiKey=ea3aca9057654e45a61207978509cdea&",
-    title: "Sedation Dentistry for Children",
+    title: "Sedation Dentistry for Children 2+",
     description: (
         <>
         Regular dental hygiene is very important for children: When it is ignored, poor oral hygiene can have disastrous negative consequences on formative years, including low self esteem, behaviour problems, and infections that spread from baby teeth to adult teeth.<br />
@@ -177,7 +187,7 @@ const sedationOptions = [
         <br />
         <span className="font-bold text-center text-[#282828] mt-5 mb-2">General Anesthesia Safety</span><br />
         <br />
-        General anesthesia has an excellent record of safety, as has been proven by multiple scientific studies. We have regularly been providing general anesthesia services to children in Mississauga for over 20 years. Many other dental offices in Mississauga also refer children to Awake or Asleep to treat their patients under dental anesthesia sedation. At Awake or Asleep anesthesia is administered by a hospital level MD with a specialty certification in anesthesiology. Your child is monitored by the anesthesiologist throughout the entire treatment.<br />
+        General anesthesia has an excellent record of safety, as proven by multiple scientific studies. Awake or Asleep offers a range of sedation options and has been providing sedation dentistry in Mississauga for over 20 years. We welcome referrals from other dental offices in Mississauga to treat their patients under sedation. At Awake or Asleep, you receive ideal safety and speed for your procedure. Anesthesia is administered by a hospital-level M.D. with a specialty certification in anesthesiology, while dentistry is performed. Your child is constantly monitored by the anesthesiologist and a registered nurse, allowing the dentist to work uninterrupted. We have proudly maintained a long-term partnership with our anesthesia group since 1999.<br />
       </>
     ),
     learnMoreLink: "#",
@@ -187,7 +197,7 @@ const sedationOptions = [
     title: "Conscious Sedation",
     description: (
       <>
-        During conscious sedation, medication is used to help ease anxiety. Depending on the level of sedation, you can be lightly relaxed, or you can be sedated to the edge of consciousness where you will not be aware of much of the procedure and sights, sounds, and smells will be toned out.
+        During conscious sedation, medication is used to help ease anxiety. Depending on the level of sedation, you can be lightly relaxed, or you can be sedated to the edge of consciousness where you will not be aware of much of the procedure, and sights, sounds, and smells will be toned down.
         <br />
         <br />
         <span className="font-bold text-center text-[#282828] mt-5 mb-2">Conscious Sedation VS. General Anesthesia</span>
@@ -199,7 +209,7 @@ const sedationOptions = [
         <span className="font-bold text-center text-[#282828] mt-5 mb-2">Nitrous Oxide (Laughing Gas)</span>
         <br />
         <br />
-        Nitrous oxide is very safe. Mixed with oxygen, you simply breathe it in through a mask covering your nose. You will begin to feel relaxing effects within a few minutes. If you experience light-headedness or tingling sensations, it is perfectly normal and nothing to be concerned about. Laughing gas will not cause you to lose consciousness. You will still be aware of the procedure, but anxiety will be relieved. For most procedures, you will also receive a local anesthetic that will have a numbing effect, ensuring you feel no pain during your procedure. The effects of nitrous oxide begin to subside soon after the mask is removed. If this is the only form of sedation during your procedure, you will be able to drive yourself home afterwards.
+        Nitrous oxide is very safe. Mixed with oxygen, you simply breathe it in through a mask covering your nose. You will begin to feel its relaxing effects within a few minutes. If you experience light-headedness or tingling sensations, it is perfectly normal and nothing to be concerned about. Laughing gas will not cause you to lose consciousness. You will still be aware of the procedure, but your anxiety will be relieved. For most procedures, you will also receive a local anesthetic that will have a numbing effect, ensuring you feel no pain during your procedure. The effects of nitrous oxide begin to subside soon after the mask is removed. If this is the only form of sedation during your procedure, you will be able to drive yourself home afterward.
         <br />
         <br />
         <span className="font-bold text-center text-[#282828] mt-5 mb-2">Dental Oral Sedation</span>

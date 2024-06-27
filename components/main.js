@@ -5,7 +5,11 @@ import Link from 'next/link';
 const ServiceItem = ({ imageSrc, title, description }) => (
   <div className="flex flex-col grow pb-5 max-md:mt-10 max-sm:text-center max-md:items-center">
     <img src={imageSrc} alt={title} className="w-10 aspect-square max-sm:mx-auto" />
-    <div className="mt-6 text-xl tracking-wider text-[#282828] font-medium">{title}</div>
+    <Link href="/services" passHref>
+      <div className="mt-6 text-xl tracking-wider text-[#282828] font-medium cursor-pointer">
+        {title}
+      </div>
+    </Link>
     <div className="mt-9 text-lg tracking-widest leading-9 text-zinc-400 max-md:text-center">{description}</div>
   </div>
 );
@@ -283,14 +287,14 @@ export function MyComponent() {
           <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full animate-fade-in scroll-trigger">
             <img
               loading="lazy"
-              src="https://cdn.builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F72c80f114dc149019051b6852a9e3b7a"
+              src="/images/golo.png"
               alt="Dr. Golovanov"
               className="box-border object-cover overflow-hidden shrink-0 m-auto w-full aspect-[1.42] min-h-[20px] min-w-[20px] max-md:mx-auto max-md:w-full max-md:max-w-[529px] max-sm:w-full"
             />
           </div>
           <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full animate-slide-up scroll-trigger">
             <h2 className="pt-16 mt-auto mr-10 mb-5 ml-5 max-sm:mr-0 max-sm:ml-0 text-6xl font-bold tracking-tighter text-[#282828] max-md:max-w-full max-md:text-5xl max-md:text-center max-sm:text-center">
-              Professionals you can trust. Period.
+              Professionals you can trust.
             </h2>
             <p className="mt-5 mr-10 mb-auto ml-5 text-lg leading-9 text-zinc-400 max-md:max-w-full max-md:text-center max-sm:mr-0 max-sm:ml-0">
             Awake or Asleep Dentistry has been providing sedation dentistry in Mississauga for over 20 years. We offer several different sedation options for your comfort, ranging from light conscious sedation, deep conscious sedation, to fully asleep. Call, or schedule a consultation to discuss your options, or look around for more information.

@@ -25,8 +25,8 @@ function ContactSection() {
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/b91c111f1d616b6fc334635a034ddcffabcc5a879a025724c72710e5a216d0c0?apiKey=ea3aca9057654e45a61207978509cdea&"
         className="aspect-[33.33] fill-slate-400 w-[400px] mx-auto max-sm:w-[240px]"
       />
-      <p className="box-border relative shrink-0 mx-auto mt-5 h-auto font-light text-zinc-400 max-sm:mx-auto max-sm:text-sm max-sm:text-center">
-        Fill out the following forms before your first appointment
+      <p className="box-border relative shrink-0 mx-auto mt-5 h-auto font-medium text-zinc-800 max-sm:mx-auto max-sm:text-sm max-sm:text-center">
+        Download the following forms that apply to you
       </p>
       <div className="flex justify-center space-x-4 mt-8">
         <a
@@ -36,7 +36,7 @@ function ContactSection() {
           className="flex items-center justify-center w-48 px-6 py-3 border-2 border-[#5BA3BB] rounded-lg text-[#5BA3BB] hover:bg-[#5BA3BB] hover:text-white transition-colors hover:scale-105 transition-transform duration-200 button-border-gradient"
         >
           <FontAwesomeIcon icon={faFileMedical} className="mr-2" />
-          <span className="text-center">Patient History</span>
+          <span className="text-center">First Visit</span>
         </a>
         <a
           href="https://sedationdentistry.ca/wp-content/uploads/2020/07/20191118-SurgiServices-AnaesQuestionnaire-2019_fill-v2_new.pdf"

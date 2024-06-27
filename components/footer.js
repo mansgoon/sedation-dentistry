@@ -25,7 +25,7 @@ const footerSections = [
   },
   {
     title: "Services",
-    items: ["Preventive Care", "Implant Dentistry", "Cosmetic Dentistry", "Sedation Dentistry"],
+    items: ["Preventative Care", "Implant Dentistry", "Cosmetic Dentistry", "Sedation Dentistry"],
     links: ["/services", "/services", "/services", "/services"], // All services links go to /services
   },
 ];
