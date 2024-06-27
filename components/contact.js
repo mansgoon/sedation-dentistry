@@ -116,8 +116,24 @@ function ContactForm() {
     messageBox: '',
   });
 
+  const formatPhoneNumber = (value) => {
+    if (!value) return value;
+    const phoneNumber = value.replace(/[^\d]/g, '');
+    const phoneNumberLength = phoneNumber.length;
+    if (phoneNumberLength < 4) return phoneNumber;
+    if (phoneNumberLength < 7) {
+      return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3)}`;
+    }
+    return `(${phoneNumber.slice(0, 3)}) ${phoneNumber.slice(3, 6)}-${phoneNumber.slice(6, 10)}`;
+  };
+
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === 'phoneNumber') {
+      const formattedPhoneNumber = formatPhoneNumber(e.target.value);
+      setFormData({ ...formData, [e.target.name]: formattedPhoneNumber });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   const handleDateChange = (date) => {
@@ -275,17 +291,15 @@ function ContactForm() {
             Phone number
           </label>
           <input
-            type="tel"
-            id="phoneNumber"
-            placeholder="+1 (555) 000-0000"
-            name="phoneNumber"
-            value={formData.phoneNumber}
-            onChange={handleChange}
-            pattern="[0-9]{10}"
-            title="Please enter a 10-digit phone number"
-            className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
-            required
-          />
+          type="tel"
+          id="phoneNumber"
+          placeholder="(555) 000-0000"
+          name="phoneNumber"
+          value={formData.phoneNumber}
+          onChange={handleChange}
+          className="box-border flex relative flex-col shrink-0 p-2.5 mt-5 rounded border border-solid border-zinc-400 caret-zinc-800 text-[#282828] focus:outline-none focus:ring-1"
+          required
+        />
         </div>
         <div className="flex gap-5 max-sm:flex-col max-md:gap-0">
           <div className="flex flex-col w-1/2 max-sm:ml-0 max-sm:w-full">
