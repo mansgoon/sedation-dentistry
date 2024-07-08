@@ -287,7 +287,7 @@ export function MyComponent() {
           <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full animate-fade-in scroll-trigger">
             <img
               loading="lazy"
-              src="/images/golo.png"
+              src="/images/golo.jpg"
               alt="Dr. Golovanov"
               className="box-border object-cover overflow-hidden shrink-0 m-auto w-full aspect-[1.42] min-h-[20px] min-w-[20px] max-md:mx-auto max-md:w-full max-md:max-w-[529px] max-sm:w-full"
             />

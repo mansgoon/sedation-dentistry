@@ -14,7 +14,7 @@ function Logo() {
   );
 }
 
-function NavigationLink({ children, href, onClick }) {
+function NavigationLink({ children, href, onClick, isMobile }) {
   const pathname = usePathname();
   const isActive = pathname === href;
 
@@ -26,7 +26,9 @@ function NavigationLink({ children, href, onClick }) {
         }`}
         onClick={onClick}
       >
-        {children}
+        <span className={isMobile && isActive ? 'inline-block border-b-2 border-[#5BA3BB]' : ''}>
+          {children}
+        </span>
       </div>
     </Link>
   );
@@ -57,7 +59,7 @@ function NavigationMenu({ isMobile, onLinkClick }) {
   return (
     <nav className={`${isMobile ? 'flex flex-col gap-4' : 'flex gap-5 justify-between my-auto'} text-xs tracking-wider whitespace-nowrap text-zinc-800`}>
       {navigationItems.map(({ label, href }) => (
-        <NavigationLink key={label} href={href} onClick={(e) => handleClick(e, href)}>
+        <NavigationLink key={label} href={href} onClick={(e) => handleClick(e, href)} isMobile={isMobile}>
           {label}
         </NavigationLink>
       ))}
