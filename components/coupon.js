@@ -142,7 +142,7 @@ export function Coupon() {
                                         </form>
                                     </div>
                                     <div className="flex flex-col justify-center w-6/12 max-md:ml-0 max-md:w-full">
-                                        <img loading="lazy" src="https://sedationdentistry.ca/wp-content/uploads/2016/10/pop-up.jpg" alt="" className="box-border rounded overflow-hidden shadow-xl shrink-0 w-full aspect-[2.5] min-h-[20px] min-w-[20px] max-md:mt-10 max-sm:mt-10" />
+                                        <img loading="lazy" src="/images/pop-up.jpg" alt="" className="box-border rounded overflow-hidden shadow-xl shrink-0 w-full aspect-[2.5] min-h-[20px] min-w-[20px] max-md:mt-10 max-sm:mt-10" />
                                     </div>
                                 </div>
                             </div>
