@@ -30,7 +30,7 @@ function ContactSection() {
       </p>
       <div className="flex justify-center space-x-4 mt-8">
         <a
-          href="https://sedationdentistry.ca/wp-content/uploads/2014/05/medhistoryform.pdf"
+          href="/medhistoryform.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center w-48 px-6 py-3 border-2 border-[#5BA3BB] rounded-lg text-[#5BA3BB] hover:bg-[#5BA3BB] hover:text-white transition-colors hover:scale-105 transition-transform duration-200 button-border-gradient"
