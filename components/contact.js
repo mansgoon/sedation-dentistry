@@ -447,8 +447,8 @@ function ContactForm() {
                         </div>
                       </div>
                     </div>
-                    <div className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg min-h-[125px] opacity-[1] border-2 bg-white flex items-center">
-                    <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
+                    <a href="tel:905-277-2641" className="box-border relative pl-5 mt-8 rounded-lg border-solid shadow-lg min-h-[125px] opacity-[1] border-2 bg-white flex items-center">
+                      <div className="flex flex-col w-[13%] max-md:w-[53px] justify-center">
                         <img
                           loading="lazy"
                           src="https://cdn.builder.io/api/v1/image/assets/TEMP/26309493603664f1d84eb267f41898ab813f246073cd4851ba3560b166b339f4?apiKey=ea3aca9057654e45a61207978509cdea&"
@@ -465,7 +465,7 @@ function ContactForm() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
