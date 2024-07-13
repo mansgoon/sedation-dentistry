@@ -21,7 +21,7 @@ const footerSections = [
   {
     title: "Patient Information",
     items: ["About Us", "Download Forms", "Before / Afters", "Contact Us"],
-    links: ["/#about", "/contact", "/before-afters", "/contact"],
+    links: ["/#about", "/contact", "https://www.instagram.com/awakeorasleepdentistry", "/contact"],
   },
   {
     title: "Services",
