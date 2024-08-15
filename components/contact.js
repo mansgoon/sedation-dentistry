@@ -2,7 +2,7 @@
 import * as React from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { addDays, isAfter, isBefore, isToday, isWeekend } from 'date-fns';
+import { addDays, isAfter, isBefore, setHours, setMinutes, getDay, startOfDay, parse, isWeekend } from 'date-fns';
 import { useState } from 'react';
 import 'react-time-picker/dist/TimePicker.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -135,15 +135,65 @@ function ContactForm() {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
   };
+  
+
+  const officeHours = {
+    1: { start: 11, end: 19 }, // Monday
+    2: { start: 11, end: 19 }, // Tuesday
+    3: { start: 8, end: 16 },  // Wednesday
+    4: { start: 8, end: 16 },  // Thursday
+    5: { start: 8, end: 15 },  // Friday
+    0: null, // Sunday (closed)
+    6: null  // Saturday (closed)
+  };
+
+  const isPastCutoffTime = (date) => {
+    const now = new Date();
+    const dayOfWeek = getDay(date);
+    const hours = officeHours[dayOfWeek];
+
+    if (!hours) return true; // Closed on weekends
+
+    const cutoffTime = setHours(setMinutes(date, 0), hours.end);
+    return isAfter(now, cutoffTime);
+  };
+
+  const getMinDate = () => {
+    const today = new Date();
+    let checkDate = today;
+    let daysToAdd = 0;
+
+    while (true) {
+      const dayOfWeek = getDay(checkDate);
+      if (officeHours[dayOfWeek] && !isPastCutoffTime(checkDate)) {
+        return addDays(today, daysToAdd);
+      }
+      checkDate = addDays(checkDate, 1);
+      daysToAdd++;
+    }
+  };
 
   const handleDateChange = (date) => {
+    if (isPastCutoffTime(date)) {
+      alert("Bookings for this day are closed. Please select a future date.");
+      return;
+    }
     setFormData({ ...formData, date });
-    setTimeError('');
+    setTimeError(''); // Clear any existing time error when date changes
+  };
+
+  const filterDate = (date) => {
+    const dayOfWeek = getDay(date);
+    return officeHours[dayOfWeek] !== null && !isBefore(startOfDay(date), startOfDay(getMinDate()));
   };
 
   const handleTimeChange = (time) => {
+    if (formData.date && !isTimeWithinOfficeHours(time, formData.date)) {
+      setTimeError('Selected time is outside of office hours. Please choose a time within our operating hours.');
+    } else {
+      setTimeError('');
+    }
     setFormData({ ...formData, time });
-    setTimeError('');
   };
 
   const [recaptchaResponse, setRecaptchaResponse] = useState('');
@@ -158,27 +208,27 @@ function ContactForm() {
   const disabledDates = getDisabledDates(startDate, endDate);
 
   const isTimeWithinOfficeHours = (time, date) => {
-    const [hours, minutes] = time.split(':').map(Number);
+    if (!date) return true; // If no date is selected, don't show an error
+
+    const [hours, minutes, period] = time.match(/(\d+):(\d+)\s*(AM|PM)/).slice(1);
+    let hour24 = parseInt(hours);
+    if (period === 'PM' && hour24 !== 12) hour24 += 12;
+    if (period === 'AM' && hour24 === 12) hour24 = 0;
+    
+    const selectedTime = new Date(date);
+    selectedTime.setHours(hour24, parseInt(minutes), 0, 0);
+
     const dayOfWeek = date.getDay();
+    const dayHours = officeHours[dayOfWeek];
 
-    // Monday - Tuesday: 11am - 7pm
-    if ((dayOfWeek === 1 || dayOfWeek === 2) && (hours < 11 || hours >= 19)) {
-      return false;
-    }
-    // Wednesday - Thursday: 8am - 4pm
-    if ((dayOfWeek === 3 || dayOfWeek === 4) && (hours < 8 || hours >= 16)) {
-      return false;
-    }
-    // Friday: 8am - 3pm
-    if (dayOfWeek === 5 && (hours < 8 || hours >= 15)) {
-      return false;
-    }
-    // Saturday - Sunday: Closed
-    if (dayOfWeek === 0 || dayOfWeek === 6) {
-      return false;
-    }
+    if (!dayHours) return false; // Closed on weekends
 
-    return true;
+    const openTime = new Date(date);
+    openTime.setHours(dayHours.start, 0, 0, 0);
+    const closeTime = new Date(date);
+    closeTime.setHours(dayHours.end, 0, 0, 0);
+
+    return selectedTime >= openTime && selectedTime < closeTime;
   };
 
   const handleSubmit = async (e) => {
@@ -192,14 +242,7 @@ function ContactForm() {
       return;
     }
 
-    const [time, period] = formData.time.split(' ');
-    const [hours, minutes] = time.split(':');
-    let hour24 = parseInt(hours);
-    if (period === 'PM' && hour24 !== 12) hour24 += 12;
-    if (period === 'AM' && hour24 === 12) hour24 = 0;
-    const timeString = `${hour24.toString().padStart(2, '0')}:${minutes}`;
-
-    if (!isTimeWithinOfficeHours(timeString, formData.date)) {
+    if (!isTimeWithinOfficeHours(formData.time, formData.date)) {
       setTimeError('Selected time is outside of office hours. Please choose a time within our operating hours.');
       setLoading(false);
       return;
@@ -313,11 +356,11 @@ function ContactForm() {
                 name="date"
                 selected={formData.date}
                 onChange={handleDateChange}
-                minDate={new Date()}
+                minDate={getMinDate()}
+                filterDate={filterDate}
                 className="box-border flex relative flex-col shrink-0 w-full mt-5 rounded border border-solid border-zinc-400 text-[#282828] focus:outline-none focus:ring-1 caret-zinc-800 p-2.5"
                 placeholderText="Select a date"
                 required
-                excludeDates={disabledDates}
                 autoComplete="off"
               />
             </div>
@@ -330,16 +373,18 @@ function ContactForm() {
               <CustomTimePicker
                 value={formData.time}
                 onChange={handleTimeChange}
+                officeHours={officeHours}
+                selectedDate={formData.date}
               />
               {timeError && (
-              <div className="mt-2 p-2 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-                <strong className="font-bold">Error:</strong>
-                <span className="block sm:inline"> {timeError}</span>
-                <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
-                  <FontAwesomeIcon icon={faExclamationCircle} />
-                </span>
-              </div>
-            )}
+                <div className="mt-2 p-2 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                  <strong className="font-bold">Error:</strong>
+                  <span className="block sm:inline"> {timeError}</span>
+                  <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+                    <FontAwesomeIcon icon={faExclamationCircle} />
+                  </span>
+                </div>
+              )}
             </div>
           </div>
         </div>
