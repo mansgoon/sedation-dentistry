@@ -7,7 +7,12 @@ const FooterSection = ({ title, items, links }) => (
     <div className="mt-9 text-lg tracking-widest leading-9 text-zinc-400">
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          <a href={links[index]} className="hover:underline">
+          <a 
+            href={links[index]} 
+            className="hover:underline"
+            target={item === "Referral Form" ? "_blank" : "_self"}
+            rel={item === "Referral Form" ? "noopener noreferrer" : ""}
+          >
             {item}
           </a>
           <br />
@@ -20,8 +25,8 @@ const FooterSection = ({ title, items, links }) => (
 const footerSections = [
   {
     title: "Patient Information",
-    items: ["About Us", "Download Forms", "Before / Afters", "Contact Us"],
-    links: ["/#about", "/contact", "https://www.instagram.com/awakeorasleepdentistry", "/contact"],
+    items: ["About Us", "Download Forms", "Before / Afters", "Referral Form"],
+    links: ["/#about", "/contact", "https://www.instagram.com/awakeorasleepdentistry", "/AOAD-ref.pdf"],
   },
   {
     title: "Services",
